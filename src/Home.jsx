@@ -85,7 +85,7 @@ const Home = () => {
                         { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications" , link: "/Web" },
                         { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "APIs" , link: "/Api" },
                         { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure" , link: "/Cloud" },
-                        { img: "https://media.istockphoto.com/id/1517344698/photo/white-cyborg-robotic-hand-pointing-his-finger-to-human-hand-with-stretched-finger-ai.jpg?s=612x612&w=0&k=20&c=j5Ku_NMzQNE-9S3TBG_sNMkFASYLSAGUzdVbCsgNcsU=", title: "AI Solutions" , link : "/Ai" },
+                        { img: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Artificial_Intelligence_%26_AI_%26_Machine_Learning.jpg", title: "AI Solutions" , link : "/Ai" },
                         { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl905190f3d3rw6d_uA5wKInZMfLMSAhIvfg&s", title: "Data Analytics" , link: "/Data"},
                         { img: "https://learn.aiacontracts.com/wp-content/uploads/2024/01/AdobeStock_496986836.jpeg", title: "Individual Trainings" },
                         { img: "https://www.aafmindia.co.in/finance-banking-insurance-training/images/imagebox/3.jpg", title: "Corporate Trainings" }
