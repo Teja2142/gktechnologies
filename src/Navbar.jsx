@@ -27,7 +27,7 @@ const Navbar = () => {
             <a href="https://linkedin.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaLinkedinIn /></a>
             <a href="https://instagram.com/accounts/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaInstagram /></a>
             <a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaYoutube /></a>
-            <a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaWhatsapp /></a>
+            <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaWhatsapp /></a>
             <a href="https://web.telegram.org" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTelegram /></a>
           </div>
 
