@@ -22,7 +22,13 @@ const Navbar = () => {
 
           {/* Right Section: Social Media Icons */}
           <div style={{ width: "50%", backgroundColor: "#006c94", display: "flex", alignItems: "center", fontWeight: "bold", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px" }}>
-            <FaTwitter /> <FaFacebookF /> <FaLinkedinIn /> <FaInstagram /> <FaYoutube /> <FaWhatsapp /> <FaTelegram />
+            <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTwitter /></a>
+            <a href="https://facebook.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaFacebookF /></a>
+            <a href="https://linkedin.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaLinkedinIn /></a>
+            <a href="https://instagram.com/accounts/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaInstagram /></a>
+            <a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaYoutube /></a>
+            <a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaWhatsapp /></a>
+            <a href="https://web.telegram.org" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTelegram /></a>
           </div>
 
       </div>
