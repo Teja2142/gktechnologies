@@ -43,16 +43,35 @@ const Data = () => {
                 { name: "Web Applications", path: "/web" },
                 { name: "APIs", path: "/apis" },
                 { name: "Cloud Infrastructure", path: "/cloud" },
-                { name: "AI Solutions", path: "/ai" },
+                { name: "IOT Services", path: "/ai" },
                 { name: "Data Analytics", path: "/data" },
               ].map((category, index) => (
-                <li 
-                  key={index} 
-                  style={{ marginBottom: "10px", padding: "10px", background: "#fff", borderRadius: "5px", cursor: "pointer", textAlign: "center", boxShadow: "0px 2px 4px rgba(0,0,0,0.1)", transition: "0.3s" }}
-                  onMouseOver={(e) => (e.target.style.background = "#f7941d")}
-                  onMouseOut={(e) => (e.target.style.background = "#fff")}
+                <li
+                  key={index}
+                  style={{ marginBottom: "10px", borderRadius: "5px", transition: "0.3s" }}
                 >
-                  <Link to={category.path} style={{ textDecoration: "none", color: "#1a1a2e", display: "block" }}>
+                  <Link
+                    to={category.path}
+                    style={{
+                      textDecoration: "none",
+                      color: "#1a1a2e",
+                      display: "block",
+                      padding: "10px",
+                      borderRadius: "5px",
+                      background: "#fff",
+                      textAlign: "center",
+                      boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
+                      transition: "0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = "#f7941d";
+                      e.target.style.color = "#fff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = "#fff";
+                      e.target.style.color = "#1a1a2e";
+                    }}
+                  >
                     {category.name}
                   </Link>
                 </li>

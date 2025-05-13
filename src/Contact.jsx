@@ -1,6 +1,20 @@
 import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Contact = () => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
       {/* Hero Section */}
@@ -58,7 +72,7 @@ const Contact = () => {
               </span>
               <div>
                 <p style={{ margin: "0", fontWeight: "600" }}>GK Technology</p>
-                <p style={{ margin: "0", color: "#666" }}>Uppal, Hyderabad, Telangana</p>
+                <p style={{ margin: "0", color: "#666" }}>Saint Louis, MO, United States.</p>
               </div>
             </div>
             
@@ -80,8 +94,8 @@ const Contact = () => {
                 </svg>
               </span>
               <div>
-                <p style={{ margin: "0", fontWeight: "600" }}>04021422142</p>
-                <p style={{ margin: "0", color: "#666" }}>04021422142</p>
+                <p style={{ margin: "0", fontWeight: "600" }}>+1-314-732-7749</p>
+                <p style={{ margin: "0", color: "#666" }}>+1-314-732-7749</p>
               </div>
             </div>
             
@@ -103,22 +117,14 @@ const Contact = () => {
                 </svg>
               </span>
               <div>
-                <p style={{ margin: "0", fontWeight: "600" }}>info@gktechnologies.com</p>
+                <p style={{ margin: "0", fontWeight: "600" }}>support@kgktechnologies.com</p>
               </div>
             </div>
           </div>
           
           {/* Google Map Embed */}
           <div style={{ marginTop: "30px" }}>
-            <iframe 
-              title="Google Maps" 
-              width="100%" 
-              height="300" 
-              frameBorder="0" 
-              style={{ border: "0", borderRadius: "8px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }} 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7613.076431793916!2d78.5604224!3d17.4057369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9952f710e9e1%3A0x945dd9ae55b1963b!2sUppal%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1711020300000" 
-              allowFullScreen
-            ></iframe>
+          <iframe title="Google Maps - Saint Louis" width="100%" height="300" frameBorder="0" style={{ border: 0, borderRadius: "8px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.023997671989!2d-90.19940408464783!3d38.627002579607865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b31a3f5262ff%3A0x1d389abecf4a5a6d!2sSaint%20Louis%2C%20MO%2C%20USA!5e0!3m2!1sen!2sus!4v1715600000000" allowFullScreen></iframe>
           </div>
         </div>
 
@@ -130,11 +136,12 @@ const Contact = () => {
           borderRadius: "12px", 
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
         }}>
-          <h2 style={{ 
+          <h2 id="contactForm" style={{ 
             color: "#006c94", 
             marginBottom: "25px",
             fontSize: "1.8rem"
           }}>Get in Touch</h2>
+
           <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div>
               <label style={{ 
@@ -249,38 +256,38 @@ const Contact = () => {
       </div>
 
       <div style={{ marginTop: "80px", marginBottom: "60px", textAlign: "center" }}>
-  <h2 style={{ color: "#006c94", marginBottom: "40px", fontSize: "1.8rem" }}>Why Choose GK Technology?</h2>
-  <div style={{ display: "flex", justifyContent: "center", gap: "30px", flexWrap: "wrap" }}>
-    
-    <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
-      <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
-        <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🚀</div>
-      </div>
-      <h3 style={{ margin: "0 0 5px", color: "#333" }}>Innovation Driven</h3>
-      <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>Modern Tech Stack</p>
-      <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>We thrive on innovation, always adapting with the latest technologies to build scalable digital solutions.</p>
-    </div>
+        <h2 style={{ color: "#006c94", marginBottom: "40px", fontSize: "1.8rem" }}>Why Choose GK Technology?</h2>
+        <div style={{ display: "flex", justifyContent: "center", gap: "30px", flexWrap: "wrap" }}>
+          
+          <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+            <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
+              <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🚀</div>
+            </div>
+            <h3 style={{ margin: "0 0 5px", color: "#333" }}>Innovation Driven</h3>
+            <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>Modern Tech Stack</p>
+            <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>We thrive on innovation, always adapting with the latest technologies to build scalable digital solutions.</p>
+          </div>
 
-    <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
-      <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
-        <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🤝</div>
-      </div>
-      <h3 style={{ margin: "0 0 5px", color: "#333" }}>Client-Centric</h3>
-      <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>You Come First</p>
-      <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>Our clients are at the heart of everything we do — your goals are our priorities.</p>
-    </div>
+          <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+            <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
+              <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🤝</div>
+            </div>
+            <h3 style={{ margin: "0 0 5px", color: "#333" }}>Client-Centric</h3>
+            <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>You Come First</p>
+            <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>Our clients are at the heart of everything we do — your goals are our priorities.</p>
+          </div>
 
-    <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
-      <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
-        <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🌐</div>
-      </div>
-      <h3 style={{ margin: "0 0 5px", color: "#333" }}>Global Vision</h3>
-      <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>Think Big, Act Smart</p>
-      <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>We are a startup with a global vision — building tech that solves real-world problems efficiently.</p>
-    </div>
+          <div style={{ background: "white", borderRadius: "12px", padding: "25px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", maxWidth: "250px", transition: "transform 0.3s", cursor: "pointer" }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+            <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: "#f0f0f0", margin: "0 auto 20px", overflow: "hidden" }}>
+              <div style={{ width: "100%", height: "100%", background: "#006c94", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "2.5rem" }}>🌐</div>
+            </div>
+            <h3 style={{ margin: "0 0 5px", color: "#333" }}>Global Vision</h3>
+            <p style={{ margin: "0 0 15px", color: "#006c94", fontWeight: "600" }}>Think Big, Act Smart</p>
+            <p style={{ color: "#666", fontSize: "0.9rem", lineHeight: "1.5" }}>We are a startup with a global vision — building tech that solves real-world problems efficiently.</p>
+          </div>
 
-  </div>
-</div>
+        </div>
+      </div>
 
 
 

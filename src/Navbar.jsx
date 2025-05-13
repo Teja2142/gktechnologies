@@ -16,16 +16,16 @@ const Navbar = () => {
       
           {/* Left Section: Contact Details */}
           <div style={{ width: "60%", backgroundColor: "#f7941d", display: "flex", alignItems: "center", paddingLeft: "5%", fontWeight: "bold", color: "white", clipPath: "polygon(0 0, 100% 0, 80% 100%, 0% 100%)", gap: "15px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><FaEnvelope /> info@gktechnologies.com</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><FaPhoneAlt /> 04021422142, 04021422142</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><FaEnvelope /> support@kgktechnologies.com</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><FaPhoneAlt /> +1-314-732-7749, +1-314-732-7749</span>
           </div>
 
           {/* Right Section: Social Media Icons */}
           <div style={{ width: "50%", backgroundColor: "#006c94", display: "flex", alignItems: "center", fontWeight: "bold", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px" }}>
             <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTwitter /></a>
             <a href="https://facebook.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaFacebookF /></a>
-            <a href="https://linkedin.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaLinkedinIn /></a>
-            <a href="https://instagram.com/accounts/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaInstagram /></a>
+            <a href="https://www.linkedin.com/in/gk-technologies-20a187365/" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/gk_technologies.stl/" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaInstagram /></a>
             <a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaYoutube /></a>
             <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaWhatsapp /></a>
             <a href="https://web.telegram.org" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTelegram /></a>
@@ -41,15 +41,13 @@ const Navbar = () => {
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <img src={gklogo} alt="GK Technology Logo" style={{ height: "48px" }} />
           <div>
-            <h1 style={{ fontSize: "24px", fontWeight: "bold", color: "#1e3a8a" }}>GK Technology
+            <h1 style={{ fontSize: "24px", fontWeight: "bold", color: "#1e3a8a" }}>GK Tech
             <p style={{ fontSize: "14px", color: "#2563eb" , marginTop: "-9px" }}>Stay one step ahead</p>
             </h1>
           </div>
         </div>
         <nav style={{ display: "flex", gap: "24px", fontWeight: "600", position: "relative" }}>
           <Link to="/" style={{ color: "black", textDecoration: "none" }}>Home</Link>
-          <Link to="/About" style={{ color: "black", textDecoration: "none" }}>About Us</Link>
-
           {/* Services Dropdown */}
           <div 
             style={{ position: "relative", cursor: "pointer" }} 
@@ -67,6 +65,10 @@ const Navbar = () => {
             )}
           </div>
           <Link to="/Careers" style={{ color: "black", textDecoration: "none" }}>Careers</Link>
+
+          <Link to="/About" style={{ color: "black", textDecoration: "none" }}>About Us</Link>
+
+          
           <Link to="/Contact" style={{ color: "black", textDecoration: "none" }}>Contact Us</Link>
         </nav>
       </div>

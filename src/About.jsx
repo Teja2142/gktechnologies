@@ -575,7 +575,7 @@ const About = () => {
         <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '15px' }}>Ready to take your business online?</h2>
         <p style={{ fontSize: '1.2rem', marginBottom: '30px', opacity: '0.9' }}>Let's build something powerful together.</p>
         <button style={{ padding: '12px 30px', fontSize: '1rem', fontWeight: '600', backgroundColor: 'white', color: '#3498db', border: 'none', borderRadius: '50px', cursor: 'pointer' }}>
-          <Link to="/contact" style={{textDecoration: 'none' , color: 'black'}}>Book a free consultation today</Link>
+          <Link to="/Contact#contactForm" style={{textDecoration: 'none' , color: 'black'}}>Book a free consultation today</Link>
         </button>
       </div>
     </div>

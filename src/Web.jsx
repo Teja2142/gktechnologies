@@ -42,13 +42,37 @@ const Web = () => {
                 { name: "Web Applications", path: "/web" },
                 { name: "APIs", path: "/apis" },
                 { name: "Cloud Infrastructure", path: "/cloud" },
-                { name: "AI Solutions", path: "/ai" },
+                { name: "IOT Services", path: "/ai" },
                 { name: "Data Analytics", path: "/data" },
               ].map((category, index) => (
-                <li key={index} style={{ marginBottom: "10px", padding: "10px", background: "#fff", borderRadius: "5px", cursor: "pointer", textAlign: "center", boxShadow: "0px 2px 4px rgba(0,0,0,0.1)", transition: "0.3s" }}
-                    onMouseOver={(e) => (e.target.style.background = "#f7941d")}
-                    onMouseOut={(e) => (e.target.style.background = "#fff")}>
-                  <Link to={category.path} style={{ textDecoration: "none", color: "#1a1a2e", display: "block" }}>{category.name}</Link>
+                <li
+                  key={index}
+                  style={{ marginBottom: "10px", borderRadius: "5px", transition: "0.3s" }}
+                >
+                  <Link
+                    to={category.path}
+                    style={{
+                      textDecoration: "none",
+                      color: "#1a1a2e",
+                      display: "block",
+                      padding: "10px",
+                      borderRadius: "5px",
+                      background: "#fff",
+                      textAlign: "center",
+                      boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
+                      transition: "0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = "#f7941d";
+                      e.target.style.color = "#fff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = "#fff";
+                      e.target.style.color = "#1a1a2e";
+                    }}
+                  >
+                    {category.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -57,11 +81,13 @@ const Web = () => {
           {/* Help Section */}
           <div style={{ background: "#1a1a2e", color: "#fff", padding: "15px", marginLeft: "-20px", borderRadius: "8px", textAlign: "center", boxShadow: "0px 4px 8px rgba(0,0,0,0.1)" }}>
             <h3>Do you need any help?</h3>
-            <p style={{ fontWeight: "bold", fontSize: "16px" }}>04021422142, 04021422142</p>
-            <p>info@techvyver.com</p>
-            <button style={{ background: "#ff9800", color: "#fff", border: "none", padding: "10px 15px", borderRadius: "5px", cursor: "pointer", marginTop: "10px" }}>
-              WhatsApp
-            </button>
+            <p style={{ fontWeight: "bold", fontSize: "16px" }}>+1-314-732-7749, +1-314-732-7749</p>
+            <p>support@kgktechnologies.com</p>
+            <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer">
+              <button style={{ background: "#ff9800", color: "#fff", border: "none", padding: "10px 15px", borderRadius: "5px", cursor: "pointer", marginTop: "10px" }}>
+                WhatsApp
+              </button>
+            </a>
           </div>
         </div>
       </div>

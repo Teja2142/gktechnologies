@@ -34,9 +34,9 @@ const Footer = () => {
         {/* Contact Info */}
         <div style={{ flex: "1", minWidth: "250px", textAlign: "left", marginBottom: "20px" }}>
           <h3 style={{ color: "#f7941d", fontSize: "22px", marginBottom: "10px" }}>Contact Us</h3>
-          <p style={{ fontSize: "14px", marginBottom: "6px" }}>📞 04021422142, 04021422142</p>
-          <p style={{ fontSize: "14px", marginBottom: "6px" }}>✉ info@gktechnology.com</p>
-          <p style={{ fontSize: "14px" }}>📍 Hyderabad, India</p>
+          <p style={{ fontSize: "14px", marginBottom: "6px" }}>📞 +1-314-732-7749, +1-314-732-7749</p>
+          <p style={{ fontSize: "14px", marginBottom: "6px" }}>✉ support@kgktechnology.com</p>
+          <p style={{ fontSize: "14px" }}>📍 Saint Louis, MO, United States.</p>
         </div>
 
         {/* Social Media Links */}
@@ -45,8 +45,8 @@ const Footer = () => {
           <div style={{ display: "flex", gap: "12px" }}>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaFacebookF /></a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaTwitter /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaLinkedinIn /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaInstagram /></a>
+            <a href="https://www.linkedin.com/in/gk-technologies-20a187365/" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/gk_technologies.stl/" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", fontSize: "20px" }}><FaInstagram /></a>
           </div>
         </div>
       </div>
