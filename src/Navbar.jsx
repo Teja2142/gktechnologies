@@ -21,7 +21,7 @@ const Navbar = () => {
           </div>
 
           {/* Right Section: Social Media Icons */}
-          <div style={{ width: "50%", backgroundColor: "#006c94", display: "flex", alignItems: "center", fontWeight: "bold", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px" }}>
+          <div style={{ width: "45%", backgroundColor: "#006c94", display: "flex", alignItems: "center", fontWeight: "bold", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px" }}>
             <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaTwitter /></a>
             <a href="https://facebook.com/login" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaFacebookF /></a>
             <a href="https://www.linkedin.com/in/gk-technologies-20a187365/" target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none" }}><FaLinkedinIn /></a>
@@ -54,15 +54,30 @@ const Navbar = () => {
             onMouseEnter={() => setShowDropdown(true)} 
             onMouseLeave={() => setShowDropdown(false)}
           >
-            <span style={{ color: "black", textDecoration: "none" }}>Services ▼</span>
-            {showDropdown && (
-              <div style={{ position: "absolute", top: "100%", left: "0", background: "white", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", borderRadius: "4px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px", zIndex: 10 }}>
-                <Link to="/Web" style={{ color: "black", textDecoration: "none", padding: "8px" }}>Web Development</Link>
-                <Link to="/Api" style={{ color: "black", textDecoration: "none", padding: "8px" }}>API Services</Link>
-                <Link to="/Cloud" style={{ color: "black", textDecoration: "none", padding: "8px" }}>Cloud Services</Link>
-                <Link to="/Data" style={{ color: "black", textDecoration: "none", padding: "8px" }}>Data Analytics</Link>
-              </div>
-            )}
+          <span style={{ color: "black", textDecoration: "none", cursor: "pointer" }}>
+            Services ▼
+          </span>
+
+          {showDropdown && (
+            <div style={{ position: "absolute", top: "100%", left: "-120px", background: "#fff", boxShadow: "0 8px 20px rgba(0,0,0,0.1)", borderRadius: "8px", padding: "20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px", zIndex: 1000, minWidth: "350px" }}>
+              {[
+                { path: "/Web", name: "Web Development", icon: "💻" },
+                { path: "/Api", name: "API Services", icon: "🔌" },
+                { path: "/Cloud", name: "Cloud Services", icon: "☁️" },
+                { path: "/Data", name: "Data Analytics", icon: "📊" },
+                { path: "/IoT", name: "IoT Solutions", icon: "🏠" },
+                { path: "/Mobile", name: "Mobile Development", icon: "📱" }
+              ].map((item, index) => (
+                <Link key={index} to={item.path} style={{ color: "#1a1a2e", textDecoration: "none", padding: "10px 15px", borderRadius: "6px", display: "flex", alignItems: "center", gap: "10px", transition: "background 0.3s", fontSize: "0.95rem" }}
+                  onMouseEnter={e => e.currentTarget.style.background = "#f5f5f5"}
+                  onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                  <span style={{ fontSize: "1.2rem" }}>{item.icon}</span> {item.name}
+                </Link>
+              ))}
+            </div>
+          )}
+
+
           </div>
           <Link to="/Careers" style={{ color: "black", textDecoration: "none" }}>Careers</Link>
 

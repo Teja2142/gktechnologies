@@ -7,11 +7,12 @@ import Footer from "./Footer";
 import Web from "./Web";
 import Api from "./Api";
 import Cloud from "./Cloud";
-import Ai from "./Ai";
+import IoT from "./IoT";
 import Data from "./Data"
 import Contact from "./Contact";
 import Careers from "./Careers";
 import About from "./About";
+import Digital from "./Digital";
 
 
 const App = () => {
@@ -24,11 +25,14 @@ const App = () => {
                 <Route path="/Web" element={<Web/>}/>
                 <Route path="/Api" element={<Api/>}/>
                 <Route path="/Cloud" element={<Cloud/>}/>
-                <Route path="/Ai" element={<Ai/>}/>
+                <Route path="/IoT" element={<IoT/>}/>
                 <Route path="/Data" element={<Data/>}/>
                 <Route path="/Contact" element={<Contact/>}/>
                 <Route path="/Careers" element={<Careers/>}/>
                 <Route path="/About" element={<About/>} />
+                <Route path="/Digital" element={<Digital/>}/>
+                
+                <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             <Footer/>
         </Router>
