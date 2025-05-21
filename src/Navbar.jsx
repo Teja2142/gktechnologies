@@ -39,7 +39,7 @@ const Navbar = () => {
       {/* Main Navbar */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 40px", backgroundColor: "white", boxShadow: "0 4px 6px rgba(0,0,0,0.1)", position: "relative" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <img src={gklogo} alt="GK Technology Logo" style={{ height: "48px" }} />
+          <Link to="/"> <img src={gklogo} alt="GK Technology Logo" style={{ height: "48px" }} /></Link>
           <div>
             <h1 style={{ fontSize: "24px", fontWeight: "bold", color: "#1e3a8a" }}>GK Tech
             <p style={{ fontSize: "14px", color: "#2563eb" , marginTop: "-9px" }}>Stay one step ahead</p>
@@ -66,7 +66,9 @@ const Navbar = () => {
                 { path: "/Cloud", name: "Cloud Services", icon: "☁️" },
                 { path: "/Data", name: "Data Analytics", icon: "📊" },
                 { path: "/IoT", name: "IoT Solutions", icon: "🏠" },
-                { path: "/Mobile", name: "Mobile Development", icon: "📱" }
+                { path: "/Mobile", name: "Mobile Development", icon: "📱" },
+                { path: "/Digital", name: "Digital Marketing", icon: "🔍" },
+                { path: "/Training", name: "Corporate Training", icon: "🏢" }
               ].map((item, index) => (
                 <Link key={index} to={item.path} style={{ color: "#1a1a2e", textDecoration: "none", padding: "10px 15px", borderRadius: "6px", display: "flex", alignItems: "center", gap: "10px", transition: "background 0.3s", fontSize: "0.95rem" }}
                   onMouseEnter={e => e.currentTarget.style.background = "#f5f5f5"}

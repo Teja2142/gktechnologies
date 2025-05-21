@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Data = () => {
+const Training = () => {
   return (
     <div style={{ 
       fontFamily: "'Poppins', Arial, sans-serif", 
@@ -25,7 +25,7 @@ const Data = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover",
+          background: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover",
           opacity: 0.1,
           zIndex: 0
         }}></div>
@@ -36,7 +36,7 @@ const Data = () => {
             fontSize: "3.5rem",
             marginBottom: "20px",
             textShadow: "2px 2px 4px rgba(0,0,0,0.3)"
-          }}>Data Analytics Solutions</h1>
+          }}>Professional Training Solutions</h1>
           <p style={{ 
             margin: "0 auto", 
             fontSize: "1.3rem", 
@@ -44,7 +44,7 @@ const Data = () => {
             lineHeight: 1.6,
             opacity: 0.9
           }}>
-            Transform raw data into actionable insights that drive business growth
+            Empower your workforce and accelerate your career with our customized training programs
           </p>
           <div style={{ 
             display: "flex", 
@@ -68,8 +68,8 @@ const Data = () => {
                 boxShadow: "0 8px 25px rgba(247, 148, 29, 0.4)",
                 background: "#ffa733"
               }
-            }}>Get Data Consultation</Link>
-            <Link to="/case-studies" style={{
+            }}>Request Training Info</Link>
+            <Link to="/training-catalog" style={{
               textDecoration: "none",
               background: "transparent",
               color: "#fff",
@@ -83,7 +83,7 @@ const Data = () => {
                 background: "rgba(255,255,255,0.1)",
                 transform: "translateY(-5px)"
               }
-            }}>View Case Studies</Link>
+            }}>View Training Catalog</Link>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ const Data = () => {
         <p style={{ margin: 0, fontSize: "14px" }}>
           <Link to="/" style={{ color: "#f7941d", fontWeight: "bold", textDecoration: "none" }}>HOME</Link> &gt; 
           <Link to="/services" style={{ color: "#f7941d", fontWeight: "bold", textDecoration: "none" }}> SERVICES</Link> &gt; 
-          <span style={{ color: "#1a1a2e" }}> DATA ANALYTICS</span>
+          <span style={{ color: "#1a1a2e" }}> PROFESSIONAL TRAINING</span>
         </p>
       </div>
 
@@ -114,7 +114,7 @@ const Data = () => {
       }}>
         {/* Left Content */}
         <div style={{ flex: 3 }}>
-          {/* Data Analytics Overview */}
+          {/* Training Overview */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -128,8 +128,8 @@ const Data = () => {
             }
           }}>
             <img 
-              src="https://www.shutterstock.com/shutterstock/videos/1030097900/thumb/7.jpg?ip=x480" 
-              alt="Data Analytics" 
+              src="https://upload.wikimedia.org/wikipedia/commons/e/ee/National_Data_Center_Capacity_Building_training_course_-_Flickr_-_The_Official_CTBTO_Photostream.jpg" 
+              alt="Professional Training" 
               style={{ 
                 width: "100%", 
                 borderRadius: "8px", 
@@ -157,7 +157,7 @@ const Data = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Advanced Data Analytics
+              Comprehensive Training Programs
             </h2>
             <p style={{ 
               color: "#555", 
@@ -165,46 +165,169 @@ const Data = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we provide data-driven insights to help businesses optimize performance and make informed decisions. Our experts use cutting-edge analytics tools to process, visualize, and interpret large datasets.
+              At GK Technology, we offer tailored training solutions for both organizations and individuals. Our programs combine industry expertise with practical skills to drive professional growth and organizational success.
             </p>
             
-            {/* Data Features Grid */}
+            {/* Training Types Section */}
+            <div style={{ marginBottom: "40px" }}>
+              <h3 style={{ 
+                color: "#1a1a2e", 
+                fontSize: "1.8rem",
+                marginBottom: "20px",
+                position: "relative",
+                paddingBottom: "10px"
+              }}>
+                <span style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "60px",
+                  height: "3px",
+                  background: "#f7941d",
+                  borderRadius: "2px"
+                }}></span>
+                Our Training Offerings
+              </h3>
+              
+              <div style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
+                gap: "20px",
+                margin: "30px 0"
+              }}>
+                {/* Corporate Training */}
+                <div style={{ 
+                  background: "#f9f9f9",
+                  padding: "25px",
+                  borderRadius: "8px",
+                  transition: "all 0.3s ease",
+                  ":hover": {
+                    background: "#1a1a2e",
+                    color: "#fff",
+                    transform: "translateY(-10px)",
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)"
+                  }
+                }}>
+                  <div style={{ 
+                    fontSize: "2.5rem",
+                    marginBottom: "20px",
+                    transition: "transform 0.3s ease",
+                    ":hover": {
+                      transform: "scale(1.2)"
+                    }
+                  }}>🏢</div>
+                  <h4 style={{ 
+                    margin: "0 0 15px",
+                    fontSize: "1.4rem"
+                  }}>Corporate Training</h4>
+                  <p style={{ 
+                    margin: 0,
+                    lineHeight: 1.6,
+                    fontSize: "1rem",
+                    marginBottom: "15px"
+                  }}>
+                    Customized programs designed to upskill your workforce and drive business results:
+                  </p>
+                  <ul style={{ 
+                    paddingLeft: "20px",
+                    margin: "15px 0 0",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px"
+                  }}>
+                    {[
+                      "Leadership development",
+                      "Technical skills training",
+                      "Team building workshops",
+                      "Compliance and safety training",
+                      "Software and tools certification"
+                    ].map((item, index) => (
+                      <li key={index} style={{ fontSize: "0.95rem" }}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* Personal Training */}
+                <div style={{ 
+                  background: "#f9f9f9",
+                  padding: "25px",
+                  borderRadius: "8px",
+                  transition: "all 0.3s ease",
+                  ":hover": {
+                    background: "#1a1a2e",
+                    color: "#fff",
+                    transform: "translateY(-10px)",
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)"
+                  }
+                }}>
+                  <div style={{ 
+                    fontSize: "2.5rem",
+                    marginBottom: "20px",
+                    transition: "transform 0.3s ease",
+                    ":hover": {
+                      transform: "scale(1.2)"
+                    }
+                  }}>👩‍💻</div>
+                  <h4 style={{ 
+                    margin: "0 0 15px",
+                    fontSize: "1.4rem"
+                  }}>Personal Training</h4>
+                  <p style={{ 
+                    margin: 0,
+                    lineHeight: 1.6,
+                    fontSize: "1rem",
+                    marginBottom: "15px"
+                  }}>
+                    Individual programs to help professionals advance their careers:
+                  </p>
+                  <ul style={{ 
+                    paddingLeft: "20px",
+                    margin: "15px 0 0",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px"
+                  }}>
+                    {[
+                      "Career coaching",
+                      "Technical certification prep",
+                      "Resume and interview skills",
+                      "Soft skills development",
+                      "Personal branding"
+                    ].map((item, index) => (
+                      <li key={index} style={{ fontSize: "0.95rem" }}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* Training Features Grid */}
             <div style={{ 
               display: "grid", 
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", 
               gap: "20px",
               margin: "30px 0"
             }}>
               {[
                 {
-                  icon: "📊",
-                  title: "Business Intelligence",
-                  desc: "Interactive dashboards and reports for real-time decision making"
+                  icon: "🎯",
+                  title: "Customized Curriculum",
+                  desc: "Tailored content to meet specific organizational or individual needs"
                 },
                 {
-                  icon: "🤖",
-                  title: "Predictive Analytics",
-                  desc: "Machine learning models to forecast trends and behaviors"
-                },
-                {
-                  icon: "🔍",
-                  title: "Data Mining",
-                  desc: "Discover hidden patterns in large datasets"
-                },
-                {
-                  icon: "📈",
-                  title: "Performance Analytics",
-                  desc: "Track and optimize business KPIs and metrics"
+                  icon: "🏆",
+                  title: "Certified Instructors",
+                  desc: "Industry experts with proven training experience"
                 },
                 {
                   icon: "🔄",
-                  title: "Data Integration",
-                  desc: "Combine data from multiple sources for unified insights"
+                  title: "Flexible Formats",
+                  desc: "In-person, virtual, or hybrid delivery options"
                 },
                 {
-                  icon: "🛡️",
-                  title: "Data Governance",
-                  desc: "Ensure data quality, security, and compliance"
+                  icon: "📈",
+                  title: "Measurable Results",
+                  desc: "Pre- and post-training assessments to track progress"
                 }
               ].map((feature, index) => (
                 <div key={index} style={{ 
@@ -227,14 +350,14 @@ const Data = () => {
                       transform: "scale(1.2)"
                     }
                   }}>{feature.icon}</div>
-                  <h3 style={{ 
+                  <h4 style={{ 
                     margin: "0 0 15px",
-                    fontSize: "1.3rem"
-                  }}>{feature.title}</h3>
+                    fontSize: "1.2rem"
+                  }}>{feature.title}</h4>
                   <p style={{ 
                     margin: 0,
                     lineHeight: 1.6,
-                    fontSize: "1rem"
+                    fontSize: "0.95rem"
                   }}>{feature.desc}</p>
                 </div>
               ))}
@@ -265,7 +388,7 @@ const Data = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our Analytics Technology Stack
+              Our Training Platforms
             </h2>
             <p style={{ 
               color: "#555", 
@@ -273,7 +396,7 @@ const Data = () => {
               fontSize: "1.1rem",
               marginBottom: "30px"
             }}>
-              We leverage industry-leading technologies to deliver powerful analytics solutions:
+              We utilize industry-leading platforms to deliver effective training experiences:
             </p>
             
             <div style={{ 
@@ -283,24 +406,24 @@ const Data = () => {
             }}>
               {[
                 {
-                  name: "Power BI",
-                  logo: "https://upload.wikimedia.org/wikipedia/he/6/6d/PowerBI_Logo.png",
-                  features: ["Interactive dashboards", "Data visualization", "Real-time analytics"]
+                  name: "Learning Management",
+                  logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzJ21OqZhfZRLOc18ysXgVcNjiC7SmtHW4bA&s",
+                  features: ["Course management", "Progress tracking", "Certification"]
                 },
                 {
-                  name: "Tableau",
-                  logo: "https://live.staticflickr.com/974/41425693524_d73d3db449_w.jpg",
-                  features: ["Advanced visualizations", "Data storytelling", "Predictive modeling"]
+                  name: "Virtual Classroom",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zoom_Communications_Logo.svg/2560px-Zoom_Communications_Logo.svg.png",
+                  features: ["Live instruction", "Interactive sessions", "Recording"]
                 },
                 {
-                  name: "Python",
-                  logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
-                  features: ["Pandas, NumPy", "Machine learning", "Data processing"]
+                  name: "Assessment Tools",
+                  logo: "https://log-hub.com/wp-content/uploads/2024/01/Higher-digitalization-and-automation.webp",
+                  features: ["Knowledge checks", "Skill evaluations", "Feedback"]
                 },
                 {
-                  name: "SQL",
-                  logo: "https://cdn-icons-png.flaticon.com/512/2772/2772128.png",
-                  features: ["Database querying", "Data manipulation", "ETL processes"]
+                  name: "Collaboration Suite",
+                  logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm6rVI0EU0p_JjDYsf7YJqXrKucm2Ga7B37Q&s",
+                  features: ["Team projects", "Document sharing", "Real-time editing"]
                 }
               ].map((tech, index) => (
                 <div key={index} style={{ 
@@ -320,7 +443,8 @@ const Data = () => {
                     style={{ 
                       height: "60px", 
                       marginBottom: "20px",
-                      objectFit: "contain"
+                      objectFit: "contain",
+                      width: "80%",
                     }} 
                   />
                   <h3 style={{ 
@@ -350,7 +474,7 @@ const Data = () => {
             </div>
           </div>
 
-          {/* Data Process */}
+          {/* Training Process */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -374,7 +498,7 @@ const Data = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our Data Analytics Process
+              Our Training Methodology
             </h2>
             
             <div style={{ 
@@ -398,34 +522,34 @@ const Data = () => {
               
               {[
                 {
-                  title: "Data Discovery",
-                  desc: "Identify data sources and business objectives",
+                  title: "Needs Assessment",
+                  desc: "Identify skills gaps and learning objectives",
                   icon: "🔍"
                 },
                 {
-                  title: "Data Preparation",
-                  desc: "Clean, transform, and structure raw data",
-                  icon: "🧹"
-                },
-                {
-                  title: "Model Development",
-                  desc: "Build analytical models and algorithms",
-                  icon: "⚙️"
-                },
-                {
-                  title: "Data Visualization",
-                  desc: "Create interactive dashboards and reports",
-                  icon: "📊"
-                },
-                {
-                  title: "Insight Delivery",
-                  desc: "Present actionable findings to stakeholders",
+                  title: "Program Design",
+                  desc: "Develop customized curriculum and materials",
                   icon: "📝"
                 },
                 {
-                  title: "Ongoing Optimization",
-                  desc: "Continuously refine models and reports",
+                  title: "Delivery",
+                  desc: "Engaging instruction through chosen format",
+                  icon: "👩‍🏫"
+                },
+                {
+                  title: "Practice & Application",
+                  desc: "Hands-on exercises and real-world scenarios",
                   icon: "🔄"
+                },
+                {
+                  title: "Evaluation",
+                  desc: "Measure learning outcomes and effectiveness",
+                  icon: "📊"
+                },
+                {
+                  title: "Follow-up Support",
+                  desc: "Ongoing resources and coaching",
+                  icon: "🤝"
                 }
               ].map((step, index) => (
                 <div key={index} style={{ 
@@ -500,7 +624,7 @@ const Data = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover",
+              background: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover",
               opacity: 0.1,
               zIndex: 0
             }}></div>
@@ -508,7 +632,7 @@ const Data = () => {
               <h2 style={{ 
                 margin: "0 0 20px",
                 fontSize: "2.2rem"
-              }}>Ready to Unlock Your Data's Potential?</h2>
+              }}>Ready to Invest in Professional Development?</h2>
               <p style={{ 
                 margin: "0 auto 30px",
                 fontSize: "1.2rem",
@@ -516,7 +640,7 @@ const Data = () => {
                 lineHeight: "1.6",
                 opacity: 0.9
               }}>
-                Let's discuss how we can help you transform data into business growth.
+                Let's discuss how we can create a training program tailored to your needs.
               </p>
               <Link to="/contact" style={{
                 textDecoration: "none",
@@ -568,10 +692,9 @@ const Data = () => {
                           </li>
                         ))}
                       </ul>
-          </div>
-          
+                    </div>
 
-          {/* Data Resources */}
+          {/* Training Resources */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -596,7 +719,7 @@ const Data = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Data Resources
+              Training Resources
             </h3>
             <div style={{
               display: "flex",
@@ -605,24 +728,24 @@ const Data = () => {
             }}>
               {[
                 {
-                  title: "Data Analytics Guide",
+                  title: "Corporate Training Guide",
                   type: "PDF",
-                  size: "2.4 MB"
+                  size: "2.1 MB"
                 },
                 {
-                  title: "Case Study: Retail Analytics",
+                  title: "Career Development Workbook",
                   type: "PDF",
-                  size: "3.1 MB"
+                  size: "3.5 MB"
                 },
                 {
-                  title: "Webinar: Predictive Modeling",
+                  title: "Webinar: Effective Training Techniques",
                   type: "Video",
-                  size: "45 min"
+                  size: "52 min"
                 },
                 {
-                  title: "Data Visualization Best Practices",
-                  type: "PDF",
-                  size: "1.8 MB"
+                  title: "Skills Assessment Template",
+                  type: "Excel",
+                  size: "1.2 MB"
                 }
               ].map((resource, index) => (
                 <div key={index} style={{ 
@@ -651,7 +774,7 @@ const Data = () => {
                     color: "#fff",
                     flexShrink: 0
                   }}>
-                    {resource.type === "PDF" ? "📄" : "🎥"}
+                    {resource.type === "PDF" ? "📄" : resource.type === "Video" ? "🎥" : "📊"}
                   </div>
                   <div>
                     <div style={{ 
@@ -689,19 +812,19 @@ const Data = () => {
               fontSize: "2rem",
               color: "#fff",
               boxShadow: "0 5px 15px rgba(0,0,0,0.2)"
-            }}>📊</div>
+            }}>🎓</div>
             <h3 style={{ 
               color: "#1a1a2e", 
               marginTop: "0",
               marginBottom: "15px",
               fontSize: "1.4rem"
-            }}>Data Experts Available</h3>
+            }}>Training Specialists Available</h3>
             <p style={{ 
               margin: "0 0 25px",
               color: "#555",
               lineHeight: "1.6"
             }}>
-              Have questions about data analytics? Our specialists are ready to help.
+              Have questions about our training programs? Our specialists are ready to help.
             </p>
             <div style={{ 
               display: "flex", 
@@ -728,7 +851,7 @@ const Data = () => {
               }}>
                 <span>📞</span> +1-314-732-7749
               </a>
-              <a href="mailto:data@techvyver.com" style={{
+              <a href="mailto:training@techvyver.com" style={{
                 textDecoration: "none",
                 background: "#f7941d",
                 color: "#fff",
@@ -756,4 +879,4 @@ const Data = () => {
   );
 };
 
-export default Data;
+export default Training;

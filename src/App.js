@@ -13,6 +13,7 @@ import Contact from "./Contact";
 import Careers from "./Careers";
 import About from "./About";
 import Digital from "./Digital";
+import Training from "./Training";
 
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
                 <Route path="/Careers" element={<Careers/>}/>
                 <Route path="/About" element={<About/>} />
                 <Route path="/Digital" element={<Digital/>}/>
-                
+                <Route path="/Training" element={<Training/>} />
                 <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             <Footer/>

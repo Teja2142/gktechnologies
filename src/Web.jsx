@@ -480,30 +480,32 @@ const Web = () => {
         <div style={{ flex: "1", minWidth: "300px" }}>
           {/* Categories Section */}
           <div style={{ background: "#fff", borderRadius: "10px", padding: "25px", boxShadow: "0 5px 15px rgba(0,0,0,0.05)", marginBottom: "30px" }}>
-            <h3 style={{ color: "#1a1a2e", marginTop: "0", marginBottom: "20px", fontSize: "1.3rem", position: "relative", paddingBottom: "10px" }}>
-              <span style={{ position: "absolute", bottom: 0, left: 0, width: "40px", height: "3px", background: "#f7941d", borderRadius: "2px" }}></span>
-              Our Services
-            </h3>
-            <ul style={{ listStyle: "none", padding: "0", margin: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
-                { name: "Web Development", path: "/web", icon: "🌐" },
-                { name: "Mobile App Development", path: "/mobile", icon: "📱" },
-                { name: "Cloud Solutions", path: "/cloud", icon: "☁️" },
-                { name: "IOT Services", path: "/IoT", icon: "🔄" },
-                { name: "Data Analytics", path: "/data", icon: "📊" },
-                { name: "API Development", path: "/api", icon: "🔌" }
-              ].map((category, index) => (
-                <li key={index}>
-                  <Link to={category.path} style={{ textDecoration: "none", color: "#555", display: "flex", alignItems: "center", gap: "10px", padding: "12px 15px", borderRadius: "8px", background: "#f9f9f9", transition: "all 0.3s ease" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateX(5px)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#555"; e.currentTarget.style.transform = "translateX(0px)"; }}>
-                    <span style={{ fontSize: "1.2rem" }}>{category.icon}</span>
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                      <h3 style={{ color: "#1a1a2e", marginTop: "0", marginBottom: "20px", fontSize: "1.3rem", position: "relative", paddingBottom: "10px" }}>
+                        <span style={{ position: "absolute", bottom: 0, left: 0, width: "40px", height: "3px", background: "#f7941d", borderRadius: "2px" }}></span>
+                        Our Services
+                      </h3>
+                      <ul style={{ listStyle: "none", padding: "0", margin: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
+                        {[
+                          { name: "Web Development", path: "/web", icon: "🌐" },
+                          { name: "Mobile App Development", path: "/mobile", icon: "📱" },
+                          { name: "Cloud Solutions", path: "/cloud", icon: "☁️" },
+                          { name: "IOT Services", path: "/IoT", icon: "🔄" },
+                          { name: "Data Analytics", path: "/data", icon: "📊" },
+                          { name: "API Development", path: "/api", icon: "🔌" },
+                          { name: "Digital Marketing", path: "/digital", icon: "📢" },
+                          { name: "Corporate Training", path: "/training", icon: "🎓" }
+                        ].map((category, index) => (
+                          <li key={index}>
+                            <Link to={category.path} style={{ textDecoration: "none", color: "#555", display: "flex", alignItems: "center", gap: "10px", padding: "12px 15px", borderRadius: "8px", background: "#f9f9f9", transition: "all 0.3s ease" }}
+                              onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateX(5px)"; }}
+                              onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#555"; e.currentTarget.style.transform = "translateX(0px)"; }}>
+                              <span style={{ fontSize: "1.2rem" }}>{category.icon}</span>
+                              {category.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
 
           {/* Help Section */}

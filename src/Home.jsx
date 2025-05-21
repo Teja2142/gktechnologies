@@ -110,23 +110,25 @@ const Home = () => {
             <h2 style={{ fontSize: "28px", fontWeight: "bold", color: "#007b8f", marginBottom: "20px" }}>
                 Our <span style={{ color: "#f7941d" }}>Services</span>
             </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "25px", maxWidth: "1200px", margin: "auto" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "25px", maxWidth: "1200px", margin: "auto", padding: "20px" }}>
                 {[
-                { img: "https://fuestech.com/wp-content/uploads/2024/07/KT-CC-10.jpg", title: "Mobile Development", link: "/Mobile" },
-                { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications", link: "/Web" },
-                { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "API Services", link: "/Api" },
-                { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure", link: "/Cloud" },
-                { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuL1Lm8-i23sX4lGnDgmV6SE3JA1VquVOA&s", title: "IoT Solutions", link: "/IoT" },
-                { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl905190f3d3rw6d_uA5wKInZMfLMSAhIvfg&s", title: "Data Analytics", link: "/Data" }
+                    { img: "https://fuestech.com/wp-content/uploads/2024/07/KT-CC-10.jpg", title: "Mobile Development", link: "/Mobile" },
+                    { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications", link: "/Web" },
+                    { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "API Services", link: "/Api" },
+                    { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure", link: "/Cloud" },
+                    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuL1Lm8-i23sX4lGnDgmV6SE3JA1VquVOA&s", title: "IoT Solutions", link: "/IoT" },
+                    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl905190f3d3rw6d_uA5wKInZMfLMSAhIvfg&s", title: "Data Analytics", link: "/Data" },
+                    { img: "https://www.macrohype.com/wp-content/uploads/2024/08/Digital-Marketing.png", title: "Digital Marketing", link: "/digital" },
+                    { img: "https://www.adaptiveus.com/hubfs/AI%20Analysis.jpg", title: "Corporate Training", link: "/training" },
                 ].map((service, index) => (
-                <div key={index} style={{ backgroundColor: "white", borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", textAlign: "center", transform: animate ? "translateY(0)" : "translateY(90px)", opacity: animate ? 1 : 0, transition: `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s` }}>
+                    <div key={index} style={{ backgroundColor: "white", borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", textAlign: "center", transform: animate ? "translateY(0)" : "translateY(90px)", opacity: animate ? 1 : 0, transition: `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s` }}>
                     <Link to={service.link} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
-                    <div style={{ padding: "10px" }}>
-                        <img src={service.img} alt={service.title} style={{ width: "100%", height: "180px", objectFit: "cover", borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />
+                        <div style={{ padding: "10px" }}>
+                        <img src={service.img} onError={(e) => { e.target.onerror = null; e.target.src = "/images/fallback.jpg"; }} alt={service.title} style={{ width: "100%", height: "180px", objectFit: "cover", borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />
                         <div style={{ backgroundColor: "#f7941d", color: "white", padding: "12px", fontWeight: "bold", fontSize: "1rem" }}>{service.title}</div>
-                    </div>
+                        </div>
                     </Link>
-                </div>
+                    </div>
                 ))}
             </div>
         </div>
