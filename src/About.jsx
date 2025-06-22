@@ -33,119 +33,48 @@ const About = () => {
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px', fontFamily: "'Arial', sans-serif", color: '#333' }}>
       {/* Hero Section */}
       <div style={{ textAlign: 'center', padding: '60px 20px', backgroundImage: `url(${aboutBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', color: '#fff', marginBottom: '40px', position: 'relative' }}>
-  <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '60px 20px' }}>
-    <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '20px' }}>About GK-Technology</h1>
-    <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
-      Empowering small and medium businesses with innovative, practical, and scalable digital solutions tailored to help them thrive in an increasingly connected world.
-    </p>
-  </div>
-    </div>
-
-
-
+        <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '60px 20px' }}>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '20px' }}>About GK-Technology</h1>
+          <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
+            Empowering small and medium businesses with innovative, practical, and scalable digital solutions tailored to help them thrive in an increasingly connected world.
+          </p>
+        </div>
+      </div>
       {/* Who We Are */}
       <div style={{ padding: '40px 0', borderBottom: '1px solid #eee' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '40px' }}>
           <div style={{ flex: '1', minWidth: '300px' }}>
             <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '20px', color: '#2c3e50' }}>Who We Are</h2>
             <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-              At GK Technologies, we believe every small and medium business deserves a strong 
-              digital presence. Headquartered in the heart of St. Louis, Missouri, we specialize in 
-              empowering local businesses with the tools they need to compete and grow in today's 
-              digital-first world.
+              At GK Technologies, we believe every small and medium business deserves a strong digital presence. Headquartered in the heart of St. Louis, Missouri, we specialize in empowering local businesses with the tools they need to compete and grow in today's digital-first world.
             </p>
             <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-              Whether you're a family-owned store, a fast-growing startup, or a long-standing 
-              neighborhood brand, we bring your vision to life through custom websites, mobile 
-              applications, and results-driven digital marketing strategies.
+              Whether you're a family-owned store, a fast-growing startup, or a long-standing neighborhood brand, we bring your vision to life through custom websites, mobile applications, and results-driven digital marketing strategies.
             </p>
           </div>
           <div style={{ flex: '1', minWidth: '300px' }}>
             <img src={teamImg} alt="GK Technologies Team" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-            </div>
-
+          </div>
         </div>
       </div>
-
       {/* Mission and Why We Exist */}
       <div style={{ padding: '60px 20px', backgroundColor: '#f8f9fa', margin: '60px 0' }}>
-        <div
-            style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '40px',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            }}
-        >
-            <div
-            style={{
-                flex: '1 1 400px',
-                padding: '30px',
-                backgroundColor: '#fff',
-                borderRadius: '12px',
-                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
-            }}
-            >
-            <h3
-                style={{
-                fontSize: '1.75rem',
-                fontWeight: '700',
-                marginBottom: '20px',
-                color: '#2c3e50',
-                }}
-            >
-                Our Mission
-            </h3>
-            <p
-                style={{
-                fontSize: '1.05rem',
-                lineHeight: '1.7',
-                color: '#555',
-                }}
-            >
-                To simplify digital transformation for small and medium businesses by providing affordable, high-quality, and customized digital solutions.<br></br>
-                We aim to be a trusted partner for local entrepreneurs, helping them harness the power of technology to grow, compete, and thrive in a digital-first world.
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '40px', maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ flex: '1 1 400px', padding: '30px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)' }}>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: '20px', color: '#2c3e50' }}>Our Mission</h3>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#555' }}>
+              To simplify digital transformation for small and medium businesses by providing affordable, high-quality, and customized digital solutions.<br></br>
+              We aim to be a trusted partner for local entrepreneurs, helping them harness the power of technology to grow, compete, and thrive in a digital-first world.
             </p>
-            </div>
-
-            <div
-            style={{
-                flex: '1 1 400px',
-                padding: '30px',
-                backgroundColor: '#fff',
-                borderRadius: '12px',
-                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
-            }}
-            >
-            <h3
-                style={{
-                fontSize: '1.75rem',
-                fontWeight: '700',
-                marginBottom: '20px',
-                color: '#2c3e50',
-                }}
-            >
-                Why We Exist
-            </h3>
-            <p
-                style={{
-                fontSize: '1.05rem',
-                lineHeight: '1.7',
-                color: '#555',
-                }}
-            >
-                We started GK Technologies with a simple observation: too many amazing local businesses
-                were being left behind because they didn't have the technical resources or know-how to go
-                digital. We made it our mission to change that — by delivering enterprise-level results with
-                the personal attention of a local partner.
+          </div>
+          <div style={{ flex: '1 1 400px', padding: '30px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)' }}>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: '20px', color: '#2c3e50' }}>Why We Exist</h3>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#555' }}>
+              We started GK Technologies with a simple observation: too many amazing local businesses were being left behind because they didn't have the technical resources or know-how to go digital. We made it our mission to change that — by delivering enterprise-level results with the personal attention of a local partner.
             </p>
-            </div>
+          </div>
         </div>
-        </div>
-
-
+      </div>
       {/* What Makes Us Different */}
       <div style={{ padding: '40px 0', borderBottom: '1px solid #eee' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '20px', color: '#2c3e50', textAlign: 'center' }}>
@@ -361,8 +290,7 @@ const About = () => {
             </p>
             </div>
         </div>
-        </div>
-
+      </div>
       {/* Core Values */}
       <div style={{ padding: '40px 0', borderBottom: '1px solid #eee' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '20px', color: '#2c3e50', textAlign: 'center' }}>
@@ -388,194 +316,98 @@ const About = () => {
             ))}
         </ul>
       </div>
-
-
-
       {/* CEO Message */}
       <div style={{ padding: '40px 0', backgroundColor: '#f8f9fa', margin: '40px 0' }}>
-  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '40px' }}>
-    <div style={{ flex: '1', minWidth: '300px' }}>
-      <img 
-        src={raviteja} 
-        alt="Ravi Teja Korla, Founder & CEO"
-        style={{ 
-          width: '100%', 
-          height: 'auto', 
-          maxHeight: '600px', 
-          objectFit: 'cover', 
-          border: '5px solid white', 
-          boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-          display: 'block'
-        }}
-      />
-    </div>
-    <div style={{ flex: '1', minWidth: '300px' }}>
-      <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '15px', color: '#2c3e50' }}>Message from the CEO</h3>
-      <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-        At GK Technologies, we're not just building websites or apps — we're helping businesses 
-        unlock their potential and compete in a fast-moving digital world.
-      </p>
-      <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-        As someone who has worked closely with small and medium businesses, I understand the 
-        challenges you face: limited time, tight budgets, and the constant pressure to grow. That's 
-        why GK Technologies was founded — to give local businesses access to digital tools that 
-        make a real difference, without the high costs or complexity.
-      </p>
-      <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-        We're a passionate team of developers, designers, and marketers who care about your 
-        success as much as you do. Our goal is simple: deliver powerful, tailored digital solutions 
-        that drive real results — whether it's more customers, higher visibility, or a stronger online 
-        brand.
-      </p>
-      <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
-        We're proud to be based in St. Louis and even prouder to serve the businesses that keep 
-        our community thriving. If you're ready to grow, we're here to help.
-      </p>
-      <div style={{ marginTop: '30px' }}>
-        <h5 style={{ fontSize: '1.2rem', marginBottom: '5px', color: '#2c3e50' }}>Ravi Teja Korla</h5>
-        <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>Founder & CEO</p>
-        <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>GK Technologies</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '40px' }}>
+          <div style={{ flex: '1', minWidth: '300px' }}>
+            <img 
+              src={raviteja} 
+              alt="Ravi Teja Korla, Founder & CEO"
+              style={{ 
+                width: '100%', 
+                height: 'auto', 
+                maxHeight: '600px', 
+                objectFit: 'cover', 
+                border: '5px solid white', 
+                boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                display: 'block'
+              }}
+            />
+          </div>
+          <div style={{ flex: '1', minWidth: '300px' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '15px', color: '#2c3e50' }}>Message from the CEO</h3>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
+              At GK Technologies, we're not just building websites or apps — we're helping businesses 
+              unlock their potential and compete in a fast-moving digital world.
+            </p>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
+              As someone who has worked closely with small and medium businesses, I understand the 
+              challenges you face: limited time, tight budgets, and the constant pressure to grow. That's 
+              why GK Technologies was founded — to give local businesses access to digital tools that 
+              make a real difference, without the high costs or complexity.
+            </p>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
+              We're a passionate team of developers, designers, and marketers who care about your 
+              success as much as you do. Our goal is simple: deliver powerful, tailored digital solutions 
+              that drive real results — whether it's more customers, higher visibility, or a stronger online 
+              brand.
+            </p>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px', color: '#555' }}>
+              We're proud to be based in St. Louis and even prouder to serve the businesses that keep 
+              our community thriving. If you're ready to grow, we're here to help.
+            </p>
+            <div style={{ marginTop: '30px' }}>
+              <h5 style={{ fontSize: '1.2rem', marginBottom: '5px', color: '#2c3e50' }}>Ravi Teja Korla</h5>
+              <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>Founder & CEO</p>
+              <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>GK Technologies</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
       {/* Our Process */}
       <div style={{ padding: '40px 0', borderBottom: '1px solid #eee' }}>
-        <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '20px', color: '#2c3e50', textAlign: 'center' }}>
-            Our Process
-        </h2>
-
-        {/* Container for steps + animated line */}
-        <div style={{
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-            padding: '60px 0',
-            margin: '0 auto',
-            maxWidth: '1000px'
-        }}>
-
-            {/* SVG Line (now loops infinitely) */}
-            <svg
-            width="100%"
-            height="4px"
-            viewBox="0 0 1000 4"
-            style={{
-                position: 'absolute',
-                top: '70px',
-                left: '0',
-                overflow: 'visible',
-                zIndex: 0
-            }}
-            >
-            <path
-                d="M 100,2 L 300,2 L 500,2 L 700,2 L 900,2"
-                stroke="url(#lineGradient)"
-                strokeWidth="4"
-                strokeDasharray="1000"
-                strokeDashoffset="1000"
-                fill="none"
-                style={{
-                animation: 'drawPath 4s ease-out infinite'
-                }}
-            />
-            <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ff0000" />
-                <stop offset="50%" stopColor="#ffcc00" />
-                <stop offset="100%" stopColor="#00aa00" />
-                </linearGradient>
-            </defs>
-            </svg>
-
-            {/* Steps 1-5 (now pulsing subtly to highlight current step) */}
-            {[
-            { num: 1, title: "Discover", desc: "We dive deep into your business, goals, and challenges.", color: "#ff0000" },
-            { num: 2, title: "Strategize", desc: "We design a tailored plan to grow your online presence.", color: "#ff6600" },
-            { num: 3, title: "Create", desc: "We build websites, apps, and campaigns that work for you.", color: "#ffcc00" },
-            { num: 4, title: "Launch & Support", desc: "We go live and stay with you every step of the way.", color: "#99cc00" },
-            { num: 5, title: "Optimize", desc: "We analyze, tweak, and grow as your business evolves.", color: "#00aa00" }
-            ].map((step, index) => (
-            <div
-                key={step.num}
-                style={{
-                flex: '1',
-                minWidth: '180px',
-                maxWidth: '220px',
-                textAlign: 'center',
-                position: 'relative',
-                zIndex: 1
-                }}
-            >
-                <div style={{
-                width: '50px',
-                height: '50px',
-                backgroundColor: step.color,
-                color: 'white',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 15px',
-                fontWeight: 'bold',
-                fontSize: '1.5rem',
-                animation: `pulseStep 4s infinite ${index * 0.8}s`
-                }}>
-                {step.num}
-                </div>
-                <h5 style={{ fontSize: '1.1rem', marginBottom: '10px', color: '#2c3e50' }}>
-                {step.title}
-                </h5>
-                <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.5' }}>
-                {step.desc}
-                </p>
+        <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '20px', color: '#2c3e50', textAlign: 'center' }}>Our Process</h2>
+        <div style={{ position: 'relative', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-start', padding: '60px 5%', margin: '0 auto', maxWidth: '1200px' }}>
+          <svg width="100%" height="4px" viewBox="0 0 1000 4" preserveAspectRatio="none" style={{ position: 'absolute', top: '70px', left: 0, right: 0, zIndex: 0 }}>
+            <path d="M 100,2 L 300,2 L 500,2 L 700,2 L 900,2" stroke="url(#lineGradient)" strokeWidth="4" strokeDasharray="1000" strokeDashoffset="1000" fill="none" style={{ animation: 'drawPath 4s ease-out infinite' }} />
+            <defs><linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#ff0000" /><stop offset="50%" stopColor="#ffcc00" /><stop offset="100%" stopColor="#00aa00" /></linearGradient></defs>
+          </svg>
+          {[{ num: 1, title: "Discover", desc: "We dive deep into your business, goals, and challenges.", color: "#ff0000" }, { num: 2, title: "Strategize", desc: "We design a tailored plan to grow your online presence.", color: "#ff6600" }, { num: 3, title: "Create", desc: "We build websites, apps, and campaigns that work for you.", color: "#ffcc00" }, { num: 4, title: "Launch & Support", desc: "We go live and stay with you every step of the way.", color: "#99cc00" }, { num: 5, title: "Optimize", desc: "We analyze, tweak, and grow as your business evolves.", color: "#00aa00" }].map((step, index) => (
+            <div key={step.num} style={{ flex: '1 1 250px', maxWidth: '250px', margin: '20px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+              <div style={{ width: '50px', height: '50px', backgroundColor: step.color, color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 15px', fontWeight: 'bold', fontSize: '1.5rem', animation: `pulseStep 4s infinite ${index * 0.8}s` }}>{step.num}</div>
+              <h5 style={{ fontSize: '1.1rem', marginBottom: '10px', color: '#2c3e50' }}>{step.title}</h5>
+              <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.5' }}>{step.desc}</p>
             </div>
             ))}
         </div>
-
-        {/* Animation styles */}
-        <style jsx>{`
-            @keyframes drawPath {
-            0%, 10% {
-                stroke-dashoffset: 1000; /* Start fully hidden */
-            }
-            20% {
-                stroke-dashoffset: 800; /* Reaches step 1 */
-            }
-            40% {
-                stroke-dashoffset: 600; /* Reaches step 2 */
-            }
-            60% {
-                stroke-dashoffset: 400; /* Reaches step 3 */
-            }
-            80% {
-                stroke-dashoffset: 200; /* Reaches step 4 */
-            }
-            90%, 100% {
-                stroke-dashoffset: 0; /* Reaches step 5 */
-            }
-            }
-            @keyframes pulseStep {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(0,0,0,0);
-            }
-            50% {
-                transform: scale(1.1);
-                box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            }
-            }
+        <style>{`
+          @keyframes drawPath { 0%,10%{stroke-dashoffset:1000;} 20%{stroke-dashoffset:800;} 40%{stroke-dashoffset:600;} 60%{stroke-dashoffset:400;} 80%{stroke-dashoffset:200;} 90%,100%{stroke-dashoffset:0;} }
+          @keyframes pulseStep { 0%,100%{transform:scale(1);box-shadow:0 0 0 rgba(0,0,0,0);} 50%{transform:scale(1.1);box-shadow:0 0 10px rgba(0,0,0,0.2);} }
+          @media(max-width:900px){ .about-flex, .about-flex-row{flex-direction:column!important;gap:24px!important;} .about-img{max-width:100%!important;} }
+          @media(max-width:768px){
+            div[style*='display: flex'][style*='gap: 40px']{flex-direction:column!important;gap:24px!important;}
+            div[style*='display: flex'][style*='gap: 20px']{flex-direction:column!important;gap:16px!important;}
+            div[style*='display: flex'][style*='gap: 40px'] img, .about-img{max-width:100%!important;}
+            h1, h2, h3, h4, h5{font-size:1.2rem!important;}
+            .about-cta{padding:32px 10px!important;}
+            .about-process{padding:24px 2%!important;}
+          }
+          @media(max-width:500px){
+            h1{font-size:1.5rem!important;}
+            h2{font-size:1.1rem!important;}
+            h3{font-size:1rem!important;}
+            p, li{font-size:0.95rem!important;}
+            div[style*='padding: 40px 0']{padding:20px 0!important;}
+            div[style*='padding: 60px 20px']{padding:24px 8px!important;}
+          }
         `}</style>
-        </div>
-
+      </div>
       {/* CTA Section */}
-      <div style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#3498db', color: 'white', borderRadius: '8px', margin: '40px 0' }}>
+      <div className="about-cta" style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#3498db', color: 'white', borderRadius: '8px', margin: '40px 0' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: '600', marginBottom: '15px' }}>Ready to take your business online?</h2>
         <p style={{ fontSize: '1.2rem', marginBottom: '30px', opacity: '0.9' }}>Let's build something powerful together.</p>
         <button style={{ padding: '12px 30px', fontSize: '1rem', fontWeight: '600', backgroundColor: 'white', color: '#3498db', border: 'none', borderRadius: '50px', cursor: 'pointer' }}>
-          <Link to="/Contact#contactForm" style={{textDecoration: 'none' , color: 'black'}}>Book a free consultation today</Link>
+          <Link to="/Contact#contactForm" style={{ textDecoration: 'none', color: 'black' }}>Book a free consultation today</Link>
         </button>
       </div>
     </div>

@@ -33,227 +33,52 @@ const Contact = () => {
       </div>
       
       {/* Contact Section */}
-      <div style={{ 
-        display: "flex", 
-        gap: "30px", 
-        marginBottom: "60px",
-        flexDirection: { xs: "column", md: "row" } 
-      }}>
-        {/* Left Card - Address & Map */}
-        <div style={{ 
-          flex: 1, 
-          padding: "30px", 
-          background: "#f8f9fa", 
-          borderRadius: "12px",
-          boxShadow: "0 4px 6px rgba(0,0,0,0.05)"
-        }}>
-          <h2 style={{ 
-            color: "#006c94", 
-            marginBottom: "20px",
-            fontSize: "1.8rem"
-          }}>Contact Information</h2>
-          <div style={{ marginBottom: "25px" }}>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
-              <span style={{ 
-                background: "#006c94", 
-                color: "white", 
-                padding: "8px", 
-                borderRadius: "50%",
-                marginRight: "15px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "36px",
-                height: "36px"
-              }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-              </span>
-              <div>
-                <p style={{ margin: "0", fontWeight: "600" }}>GK Technology</p>
-                <p style={{ margin: "0", color: "#666" }}>Saint Louis, MO, United States.</p>
-              </div>
-            </div>
-            
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
-              <span style={{ 
-                background: "#006c94", 
-                color: "white", 
-                padding: "8px", 
-                borderRadius: "50%",
-                marginRight: "15px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "36px",
-                height: "36px"
-              }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                </svg>
-              </span>
-              <div>
-                <p style={{ margin: "0", fontWeight: "600" }}>+1-314-732-7749</p>
-                <p style={{ margin: "0", color: "#666" }}>+1-314-732-7749</p>
-              </div>
-            </div>
-            
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <span style={{ 
-                background: "#006c94", 
-                color: "white", 
-                padding: "8px", 
-                borderRadius: "50%",
-                marginRight: "15px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "36px",
-                height: "36px"
-              }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                </svg>
-              </span>
-              <div>
-                <p style={{ margin: "0", fontWeight: "600" }}>support@kgktechnologies.com</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Google Map Embed */}
-          <div style={{ marginTop: "30px" }}>
-          <iframe title="Google Maps - Saint Louis" width="100%" height="300" frameBorder="0" style={{ border: 0, borderRadius: "8px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.023997671989!2d-90.19940408464783!3d38.627002579607865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b31a3f5262ff%3A0x1d389abecf4a5a6d!2sSaint%20Louis%2C%20MO%2C%20USA!5e0!3m2!1sen!2sus!4v1715600000000" allowFullScreen></iframe>
-          </div>
-        </div>
-
-        {/* Right Card - Contact Form */}
-        <div style={{ 
-          flex: 1, 
-          padding: "30px", 
-          background: "#ffffff", 
-          borderRadius: "12px", 
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
-        }}>
-          <h2 id="contactForm" style={{ 
-            color: "#006c94", 
-            marginBottom: "25px",
-            fontSize: "1.8rem"
-          }}>Get in Touch</h2>
-
-          <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div>
-              <label style={{ 
-                display: "block", 
-                marginBottom: "8px", 
-                fontWeight: "600",
-                color: "#444"
-              }}>Full Name:</label>
-              <input 
-                type="text" 
-                placeholder="Enter your full name" 
-                style={{ 
-                  padding: "12px 15px", 
-                  border: "1px solid #ddd", 
-                  borderRadius: "8px",
-                  width: "100%",
-                  fontSize: "1rem",
-                  transition: "border 0.3s",
-                  boxSizing: "border-box"
-                }} 
-              />
-            </div>
-            
-            <div>
-              <label style={{ 
-                display: "block", 
-                marginBottom: "8px", 
-                fontWeight: "600",
-                color: "#444"
-              }}>Mobile Number:</label>
-              <input 
-                type="text" 
-                placeholder="Enter your mobile number" 
-                style={{ 
-                  padding: "12px 15px", 
-                  border: "1px solid #ddd", 
-                  borderRadius: "8px",
-                  width: "100%",
-                  fontSize: "1rem",
-                  transition: "border 0.3s",
-                  boxSizing: "border-box"
-                }} 
-              />
-            </div>
-
-            <div>
-              <label style={{ 
-                display: "block", 
-                marginBottom: "8px", 
-                fontWeight: "600",
-                color: "#444"
-              }}>Email:</label>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                style={{ 
-                  padding: "12px 15px", 
-                  border: "1px solid #ddd", 
-                  borderRadius: "8px",
-                  width: "100%",
-                  fontSize: "1rem",
-                  transition: "border 0.3s",
-                  boxSizing: "border-box"
-                }} 
-              />
-            </div>
-
-            <div>
-              <label style={{ 
-                display: "block", 
-                marginBottom: "8px", 
-                fontWeight: "600",
-                color: "#444"
-              }}>Comment:</label>
-              <textarea 
-                placeholder="Enter your message" 
-                style={{ 
-                  padding: "12px 15px", 
-                  border: "1px solid #ddd", 
-                  borderRadius: "8px",
-                  width: "100%",
-                  height: "120px",
-                  fontSize: "1rem",
-                  transition: "border 0.3s",
-                  boxSizing: "border-box",
-                  resize: "vertical"
-                }}
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              style={{ 
-                padding: "14px", 
-                background: "#006c94", 
-                color: "white", 
-                border: "none", 
-                borderRadius: "8px", 
-                cursor: "pointer",
-                fontSize: "1rem",
-                fontWeight: "600",
-                transition: "background 0.3s",
-                marginTop: "10px"
-              }}
-              onMouseOver={(e) => e.target.style.background = "#005a7c"}
-              onMouseOut={(e) => e.target.style.background = "#006c94"}
-            >
-              Submit
-            </button>
-          </form>
+      <div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row", gap: "30px", marginBottom: "60px" }}>
+  <div style={{ flex: "1 1 100%", maxWidth: "100%", padding: "30px", background: "#f8f9fa", borderRadius: "12px", boxShadow: "0 4px 6px rgba(0,0,0,0.05)" }}>
+    <h2 style={{ color: "#006c94", marginBottom: "20px", fontSize: "1.8rem" }}>Contact Information</h2>
+    <div style={{ marginBottom: "25px" }}>
+      <div style={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
+        <span style={{ background: "#006c94", color: "white", padding: "8px", borderRadius: "50%", marginRight: "15px", display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px" }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/></svg>
+        </span>
+        <div>
+          <p style={{ margin: "0", fontWeight: "600" }}>GK Technology</p>
+          <p style={{ margin: "0", color: "#666" }}>Saint Louis, MO, United States.</p>
         </div>
       </div>
+      <div style={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
+        <span style={{ background: "#006c94", color: "white", padding: "8px", borderRadius: "50%", marginRight: "15px", display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px" }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
+        </span>
+        <div>
+          <p style={{ margin: "0", fontWeight: "600" }}>+1-314-732-7749</p>
+          <p style={{ margin: "0", color: "#666" }}>+1-314-732-7749</p>
+        </div>
+      </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <span style={{ background: "#006c94", color: "white", padding: "8px", borderRadius: "50%", marginRight: "15px", display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px" }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+        </span>
+        <div><p style={{ margin: "0", fontWeight: "600" }}>support@kgktechnologies.com</p></div>
+      </div>
+    </div>
+    <div style={{ marginTop: "30px" }}>
+      <iframe title="Google Maps - Saint Louis" width="100%" height="300" frameBorder="0" style={{ border: 0, borderRadius: "8px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.023997671989!2d-90.19940408464783!3d38.627002579607865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b31a3f5262ff%3A0x1d389abecf4a5a6d!2sSaint%20Louis%2C%20MO%2C%20USA!5e0!3m2!1sen!2sus!4v1715600000000" allowFullScreen></iframe>
+    </div>
+  </div>
+
+  <div style={{ flex: "1 1 100%", maxWidth: "100%", padding: "30px", background: "#ffffff", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+    <h2 id="contactForm" style={{ color: "#006c94", marginBottom: "25px", fontSize: "1.8rem" }}>Get in Touch</h2>
+    <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <div><label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#444" }}>Full Name:</label><input type="text" placeholder="Enter your full name" style={{ padding: "12px 15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%", fontSize: "1rem", transition: "border 0.3s", boxSizing: "border-box" }} /></div>
+      <div><label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#444" }}>Mobile Number:</label><input type="text" placeholder="Enter your mobile number" style={{ padding: "12px 15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%", fontSize: "1rem", transition: "border 0.3s", boxSizing: "border-box" }} /></div>
+      <div><label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#444" }}>Email:</label><input type="email" placeholder="Enter your email" style={{ padding: "12px 15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%", fontSize: "1rem", transition: "border 0.3s", boxSizing: "border-box" }} /></div>
+      <div><label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#444" }}>Comment:</label><textarea placeholder="Enter your message" style={{ padding: "12px 15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%", height: "120px", fontSize: "1rem", transition: "border 0.3s", boxSizing: "border-box", resize: "vertical" }}></textarea></div>
+      <button type="submit" style={{ padding: "14px", background: "#006c94", color: "white", border: "none", borderRadius: "8px", cursor: "pointer", fontSize: "1rem", fontWeight: "600", transition: "background 0.3s", marginTop: "10px" }}>Submit</button>
+    </form>
+  </div>
+</div>
+
 
       <div style={{ marginTop: "80px", marginBottom: "60px", textAlign: "center" }}>
         <h2 style={{ color: "#006c94", marginBottom: "40px", fontSize: "1.8rem" }}>Why Choose GK Technology?</h2>

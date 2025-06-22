@@ -8,30 +8,52 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Responsive check
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const dropdownItems = [
+    { path: "/Web", name: "Web Development", icon: "💻" },
+    { path: "/Api", name: "API Services", icon: "🔌" },
+    { path: "/Cloud", name: "Cloud Services", icon: "☁️" },
+    { path: "/Data", name: "Data Analytics", icon: "📊" },
+    { path: "/IoT", name: "IoT Solutions", icon: "🏠" },
+    { path: "/Mobile", name: "Mobile Development", icon: "📱" },
+    { path: "/Digital", name: "Digital Marketing", icon: "🔍" },
+    { path: "/Training", name: "Corporate Training", icon: "🏢" }
+  ];
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const navLinks = (
     <>
       <Link to="/" style={styles.navLink}>Home</Link>
-      <div style={{ position: "relative" }}
-        onMouseEnter={() => setShowDropdown(true)}
-        onMouseLeave={() => setShowDropdown(false)}
+      <div style={{ position: "relative", width: isMobile ? "100%" : "auto" }}
+        onMouseEnter={() => !isMobile && setShowDropdown(true)}
+        onMouseLeave={() => !isMobile && setShowDropdown(false)}
       >
-        <span style={{ ...styles.navLink, cursor: "pointer" }}>Services ▼</span>
-        {showDropdown && (
-          <div style={styles.dropdown}>
-            {[
-              { path: "/Web", name: "Web Development", icon: "💻" },
-              { path: "/Api", name: "API Services", icon: "🔌" },
-              { path: "/Cloud", name: "Cloud Services", icon: "☁️" },
-              { path: "/Data", name: "Data Analytics", icon: "📊" },
-              { path: "/IoT", name: "IoT Solutions", icon: "🏠" },
-              { path: "/Mobile", name: "Mobile Development", icon: "📱" },
-              { path: "/Digital", name: "Digital Marketing", icon: "🔍" },
-              { path: "/Training", name: "Corporate Training", icon: "🏢" }
-            ].map((item, index) => (
-              <Link key={index} to={item.path} style={styles.dropdownItem}>
+        <span
+          style={{ ...styles.navLink, cursor: "pointer", display: "flex", alignItems: "center", width: isMobile ? "100%" : "auto" }}
+          onClick={() => isMobile && setShowDropdown((prev) => !prev)}
+        >
+          Services ▼
+        </span>
+        {(showDropdown && (!isMobile || mobileMenuOpen)) && (
+          <div style={{
+            position: isMobile ? "static" : "absolute",
+            top: isMobile ? undefined : "100%",
+            left: isMobile ? undefined : "-120px",
+            background: isMobile ? "#f7f7f7" : "#fff",
+            boxShadow: isMobile ? "none" : "0 8px 20px rgba(0,0,0,0.1)",
+            borderRadius: isMobile ? "0" : "8px",
+            padding: isMobile ? "10px 0" : "20px",
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: "15px",
+            zIndex: 1000,
+            minWidth: isMobile ? "100%" : "350px",
+            width: isMobile ? "100%" : undefined
+          }}>
+            {dropdownItems.map((item, index) => (
+              <Link key={index} to={item.path} style={{ ...styles.dropdownItem, width: isMobile ? "100%" : "auto" }} onClick={() => isMobile && setMobileMenuOpen(false)}>
                 <span style={{ fontSize: "1.2rem" }}>{item.icon}</span> {item.name}
               </Link>
             ))}
@@ -96,6 +118,7 @@ const Navbar = () => {
           .desktop-nav { display: none !important; }
           .mobile-menu-icon { display: block !important; padding-right: 20px; }
           .mobile-menu { display: flex; flex-direction: column; background: white; padding: 15px 20px; gap: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+          .mobile-menu .dropdown { position: static !important; left: 0 !important; min-width: 100% !important; box-shadow: none !important; border-radius: 0 !important; padding: 10px 0 !important; grid-template-columns: 1fr !important; background: #f7f7f7 !important; }
         }
         `}
       </style>
