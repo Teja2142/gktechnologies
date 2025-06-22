@@ -92,46 +92,154 @@ const Home = () => {
         </div>
 
         {/* Banner */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 50px", backgroundImage: "url('https://img.freepik.com/premium-photo/technology-background-design-by-using-digital-elements_221397-38.jpg')", backgroundSize: "cover", backgroundPosition: "center", color: "white" }}>
-            <h2 style={{ fontSize: "32px", fontWeight: "bold", margin: "0" }}>Sharing Expertise. Building Relationships.</h2>
-            <div style={{ textAlign: "right" }}>
+        <div className="contact-banner" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            padding: "20px 50px",
+            backgroundImage: "url('https://img.freepik.com/premium-photo/technology-background-design-by-using-digital-elements_221397-38.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            color: "white",
+            gap: "20px"
+            }}>
+            <h2 style={{
+                fontSize: "32px",
+                fontWeight: "bold",
+                margin: "0",
+                flex: "1 1 300px"
+            }}>
+                Sharing Expertise. Building Relationships.
+            </h2>
+
+            <div style={{
+                textAlign: "right",
+                flex: "1 1 300px"
+            }}>
                 <p style={{ fontSize: "18px", margin: "0" }}>+1-314-732-7749, +1-314-732-7749</p>
                 <p style={{ fontSize: "16px", margin: "5px 0" }}>support@kgktechnology.com</p>
                 <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer">
-                    <button style={{ backgroundColor: "green", color: "white", padding: "10px 20px", border: "none", borderRadius: "5px", fontWeight: "bold", cursor: "pointer" }}>
-                        WhatsApp
-                    </button>
-                    </a>
+                <button style={{
+                    backgroundColor: "green",
+                    color: "white",
+                    padding: "10px 20px",
+                    border: "none",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                    cursor: "pointer"
+                }}>
+                    WhatsApp
+                </button>
+                </a>
             </div>
+
+            {/* Mobile responsiveness */}
+            <style>
+                {`
+                @media (max-width: 768px) {
+                    .contact-banner {
+                    flex-direction: column !important;
+                    text-align: center;
+                    padding: 20px;
+                    }
+                    .contact-banner h2 {
+                    font-size: 24px !important;
+                    }
+                    .contact-banner div {
+                    text-align: center !important;
+                    }
+                }
+                `}
+            </style>
         </div>
 
-        {/* cards */}
-        <div style={{ textAlign: "center", padding: "50px", backgroundColor: "#f4f4f4" }}>
-            <h2 style={{ fontSize: "28px", fontWeight: "bold", color: "#007b8f", marginBottom: "20px" }}>
-                Our <span style={{ color: "#f7941d" }}>Services</span>
-            </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "25px", maxWidth: "1200px", margin: "auto", padding: "20px" }}>
-                {[
-                    { img: "https://fuestech.com/wp-content/uploads/2024/07/KT-CC-10.jpg", title: "Mobile Development", link: "/Mobile" },
-                    { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications", link: "/Web" },
-                    { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "API Services", link: "/Api" },
-                    { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure", link: "/Cloud" },
-                    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuL1Lm8-i23sX4lGnDgmV6SE3JA1VquVOA&s", title: "IoT Solutions", link: "/IoT" },
-                    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl905190f3d3rw6d_uA5wKInZMfLMSAhIvfg&s", title: "Data Analytics", link: "/Data" },
-                    { img: "https://www.macrohype.com/wp-content/uploads/2024/08/Digital-Marketing.png", title: "Digital Marketing", link: "/digital" },
-                    { img: "https://www.adaptiveus.com/hubfs/AI%20Analysis.jpg", title: "Corporate Training", link: "/training" },
-                ].map((service, index) => (
-                    <div key={index} style={{ backgroundColor: "white", borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", textAlign: "center", transform: animate ? "translateY(0)" : "translateY(90px)", opacity: animate ? 1 : 0, transition: `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s` }}>
-                    <Link to={service.link} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
-                        <div style={{ padding: "10px" }}>
-                        <img src={service.img} onError={(e) => { e.target.onerror = null; e.target.src = "/images/fallback.jpg"; }} alt={service.title} style={{ width: "100%", height: "180px", objectFit: "cover", borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />
-                        <div style={{ backgroundColor: "#f7941d", color: "white", padding: "12px", fontWeight: "bold", fontSize: "1rem" }}>{service.title}</div>
-                        </div>
-                    </Link>
+
+        {/* Services Cards */}
+        <div className="services-section" style={{ textAlign: "center", padding: "50px", backgroundColor: "#f4f4f4" }}>
+        <h2 style={{ fontSize: "28px", fontWeight: "bold", color: "#007b8f", marginBottom: "20px" }}>
+            Our <span style={{ color: "#f7941d" }}>Services</span>
+        </h2>
+
+        <div className="cards-grid" style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "25px",
+            maxWidth: "1200px",
+            margin: "auto",
+            padding: "20px"
+        }}>
+            {[
+            { img: "https://fuestech.com/wp-content/uploads/2024/07/KT-CC-10.jpg", title: "Mobile Development", link: "/Mobile" },
+            { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications", link: "/Web" },
+            { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "API Services", link: "/Api" },
+            { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure", link: "/Cloud" },
+            { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuL1Lm8-i23sX4lGnDgmV6SE3JA1VquVOA&s", title: "IoT Solutions", link: "/IoT" },
+            { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl905190f3d3rw6d_uA5wKInZMfLMSAhIvfg&s", title: "Data Analytics", link: "/Data" },
+            { img: "https://www.macrohype.com/wp-content/uploads/2024/08/Digital-Marketing.png", title: "Digital Marketing", link: "/digital" },
+            { img: "https://www.adaptiveus.com/hubfs/AI%20Analysis.jpg", title: "Corporate Training", link: "/training" },
+            ].map((service, index) => (
+            <div
+                key={index}
+                style={{
+                backgroundColor: "white",
+                borderRadius: "10px",
+                overflow: "hidden",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                textAlign: "center",
+                transition: `all 0.6s ease ${index * 0.1}s`
+                }}
+            >
+                <Link to={service.link} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+                <div style={{ padding: "10px" }}>
+                    <img
+                    src={service.img}
+                    onError={(e) => { e.target.onerror = null; e.target.src = "/images/fallback.jpg"; }}
+                    alt={service.title}
+                    style={{
+                        width: "100%",
+                        height: "180px",
+                        objectFit: "cover",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px"
+                    }}
+                    />
+                    <div style={{
+                    backgroundColor: "#f7941d",
+                    color: "white",
+                    padding: "12px",
+                    fontWeight: "bold",
+                    fontSize: "1rem"
+                    }}>
+                    {service.title}
                     </div>
-                ))}
+                </div>
+                </Link>
             </div>
+            ))}
         </div>
+
+        {/* Mobile Responsive Styles */}
+        <style>
+            {`
+            @media (max-width: 1024px) {
+                .cards-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                }
+            }
+            @media (max-width: 600px) {
+                .cards-grid {
+                grid-template-columns: repeat(1, 1fr) !important;
+                padding: 10px !important;
+                }
+                .services-section h2 {
+                font-size: 22px !important;
+                }
+            }
+            `}
+        </style>
+        </div>
+
 
 
         </>
