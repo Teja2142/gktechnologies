@@ -73,6 +73,7 @@ const Navbar = () => {
         <div style={styles.contactSection}>
           <span style={styles.contactItem}><FaEnvelope /> support@kgktechnologies.com</span>
           <span style={styles.contactItem}><FaPhoneAlt /> +1-314-732-7749</span>
+          <span style={styles.contactItem}><FaPhoneAlt /> +1-314-354-0634</span>
         </div>
         <div style={styles.socialSection}>
           {[["https://twitter.com/login", FaTwitter], ["https://facebook.com/login", FaFacebookF], ["https://www.linkedin.com/in/gk-technologies-20a187365/", FaLinkedinIn], ["https://www.instagram.com/gk_technologies.stl/", FaInstagram], ["https://accounts.google.com/ServiceLogin?service=youtube", FaYoutube], ["https://wa.me/13147327749", FaWhatsapp], ["https://web.telegram.org", FaTelegram]].map(([link, Icon], i) => (
