@@ -52,7 +52,7 @@ const Contact = () => {
         </span>
         <div>
           <p style={{ margin: "0", fontWeight: "600" }}>+1-314-732-7749</p>
-          <p style={{ margin: "0", color: "#666" }}>+1-314-732-7749</p>
+          <p style={{ margin: "0", color: "#666" }}>+1-314-354-0634</p>
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center" }}>

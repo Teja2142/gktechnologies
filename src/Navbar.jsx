@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // Responsive check
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
   const dropdownItems = [
     { path: "/Web", name: "Web Development", icon: "💻" },

@@ -64,7 +64,7 @@ const Home = () => {
             Mission Of <span style={{ color: "#f97316" }}>GK Technology</span>
             </h2>
             <p style={{ fontSize: "16px", color: "#1e293b", lineHeight: "1.6", margin: "20px 0" }}>
-            GK Technology is a premier onsite/offshore software solutions and services company, headquartered in the U.K. 
+            GK Technology is a premier onsite/offshore software solutions and services company, headquartered in the U.S. 
             We are recognized as the second-largest private IT company and ranked among the 50 fastest-growing private companies.
             {expanded && (
                 <>
@@ -117,7 +117,7 @@ const Home = () => {
                 textAlign: "right",
                 flex: "1 1 300px"
             }}>
-                <p style={{ fontSize: "18px", margin: "0" }}>+1-314-732-7749, +1-314-732-7749</p>
+                <p style={{ fontSize: "18px", margin: "0" }}>+1-314-732-7749, +1-314-354-0634</p>
                 <p style={{ fontSize: "16px", margin: "5px 0" }}>support@kgktechnology.com</p>
                 <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer">
                 <button style={{
