@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com';
 
 const Careers = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,12 @@ const Careers = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const serviceID = "service_27q1fot"; 
+  const templateID = "template_ab2d30l"; 
+  const userID = "nIhs8qhJhAw1CUatf"; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,21 +35,67 @@ const Careers = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      linkedIn: '',
-      position: '',
-      workAuth: '',
-      location: '',
-      availability: '',
-      comments: '',
-      resume: null
-    });
+    setIsLoading(true);
+    setError('');
+
+    // Prepare the template parameters
+    const templateParams = {
+      to_email: 'hr@kgktechnologies.com',
+      from_name: formData.fullName,
+      from_email: formData.email,
+      phone: formData.phone,
+      linkedIn: formData.linkedIn,
+      position: formData.position,
+      workAuth: formData.workAuth,
+      location: formData.location,
+      availability: formData.availability,
+      comments: formData.comments,
+      reply_to: formData.email
+    };
+
+    // Send email with EmailJS
+    emailjs.send(serviceID, templateID, templateParams, userID)
+      .then((response) => {
+        console.log('Email sent successfully!', response.status, response.text);
+        
+        // If there's a resume, send it as an attachment in a separate email
+        if (formData.resume) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            const resumeParams = {
+              to_email: 'hr@kgktechnologies.com',
+              from_name: formData.fullName,
+              from_email: formData.email,
+              subject: `Resume from ${formData.fullName}`,
+              message: `Please find attached the resume from ${formData.fullName} who applied for ${formData.position}.`,
+              reply_to: formData.email,
+              attachment: event.target.result.split(',')[1],
+              attachment_name: formData.resume.name
+            };
+
+            emailjs.send(serviceID, 'template_resume_attachment', resumeParams, userID)
+              .then((res) => {
+                console.log('Resume sent successfully!', res.status, res.text);
+                setSubmitted(true);
+                setIsLoading(false);
+              })
+              .catch((err) => {
+                console.error('Failed to send resume:', err);
+                setError('Your information was sent but we encountered an issue with your resume. Please try again later.');
+                setIsLoading(false);
+              });
+          };
+          reader.readAsDataURL(formData.resume);
+        } else {
+          setSubmitted(true);
+          setIsLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.error('Failed to send email:', err);
+        setError('Failed to submit your information. Please try again later.');
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -133,6 +186,22 @@ const Careers = () => {
           }}
         >
           <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#6e48aa' }}>Express Your Interest</h2>
+          
+          {error && (
+            <div style={{
+              background: 'rgba(255, 230, 230, 0.95)',
+              color: '#b71c1c',
+              border: '1px solid #ffcdd2',
+              borderRadius: '8px',
+              padding: '15px',
+              marginBottom: '25px',
+              fontSize: '1rem',
+              fontWeight: 500,
+              textAlign: 'center'
+            }}>
+              {error}
+            </div>
+          )}
           
           <form onSubmit={handleSubmit}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '20px' }}>
@@ -351,23 +420,51 @@ const Careers = () => {
               type="submit"
               whileHover={{ scale: 1.03, boxShadow: '0 5px 15px rgba(110, 72, 170, 0.4)' }}
               whileTap={{ scale: 0.98 }}
+              disabled={isLoading}
               style={{
-                background: 'linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%)',
+                background: isLoading ? '#ccc' : 'linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%)',
                 color: 'white',
                 border: 'none',
                 padding: '15px 30px',
                 fontSize: '1rem',
                 fontWeight: '600',
                 borderRadius: '6px',
-                cursor: 'pointer',
+                cursor: isLoading ? 'not-allowed' : 'pointer',
                 transition: 'all 0.3s',
                 width: '100%',
                 maxWidth: '300px',
                 margin: '0 auto',
-                display: 'block'
+                display: 'block',
+                position: 'relative'
               }}
             >
-              Submit Your Interest
+              {isLoading ? (
+                <>
+                  <span style={{ visibility: 'hidden' }}>Submit Your Interest</span>
+                  <span style={{
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)'
+                  }}>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ animation: 'spin 1s linear infinite' }}
+                    >
+                      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                    </svg>
+                  </span>
+                </>
+              ) : (
+                'Submit Your Interest'
+              )}
             </motion.button>
           </form>
         </motion.div>
@@ -406,12 +503,26 @@ const Careers = () => {
           </motion.div>
           <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#6e48aa' }}>Thank You!</h2>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto 30px' }}>
-            Thank you for submitting your interest! We'll reach out when opportunities open up that match your profile.
+            Thank you for submitting your interest! We've sent your information to our HR team at hr@kgktechnologies.com and we'll reach out when opportunities open up that match your profile.
           </p>
           <motion.button
             whileHover={{ scale: 1.03, boxShadow: '0 5px 15px rgba(110, 72, 170, 0.4)' }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => setSubmitted(false)}
+            onClick={() => {
+              setSubmitted(false);
+              setFormData({
+                fullName: '',
+                email: '',
+                phone: '',
+                linkedIn: '',
+                position: '',
+                workAuth: '',
+                location: '',
+                availability: '',
+                comments: '',
+                resume: null
+              });
+            }}
             style={{
               background: 'linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%)',
               color: 'white',
@@ -484,6 +595,14 @@ const Careers = () => {
           ))}
         </div>
       </motion.div>
+
+      {/* Add some global styles for the spinner animation */}
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </motion.div>
   );
 };
