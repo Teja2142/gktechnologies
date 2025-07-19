@@ -62,6 +62,7 @@ const Careers = () => {
         if (formData.resume) {
           const reader = new FileReader();
           reader.onload = function(event) {
+            // EmailJS template must have a variable named 'attachment' and be set to accept attachments
             const resumeParams = {
               to_email: 'hr@kgktechnologies.com',
               from_name: formData.fullName,
@@ -69,7 +70,7 @@ const Careers = () => {
               subject: `Resume from ${formData.fullName}`,
               message: `Please find attached the resume from ${formData.fullName} who applied for ${formData.position}.`,
               reply_to: formData.email,
-              attachment: event.target.result.split(',')[1],
+              attachment: event.target.result, // send the full base64 string (with prefix)
               attachment_name: formData.resume.name
             };
 
