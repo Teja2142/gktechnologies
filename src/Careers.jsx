@@ -74,6 +74,8 @@ const Careers = () => {
               attachment_name: formData.resume.name
             };
 
+            // IMPORTANT: Make sure you have a template named 'template_resume_attachment' in EmailJS
+            // and that it has a variable named 'attachment' for the file, and is set to accept attachments.
             emailjs.send(serviceID, 'template_resume_attachment', resumeParams, userID)
               .then((res) => {
                 console.log('Resume sent successfully!', res.status, res.text);
@@ -82,7 +84,17 @@ const Careers = () => {
               })
               .catch((err) => {
                 console.error('Failed to send resume:', err);
-                setError('Your information was sent but we encountered an issue with your resume. Please try again later.');
+                // Save to localStorage as fallback
+                try {
+                  const localSubmissions = JSON.parse(localStorage.getItem('resume_submissions') || '[]');
+                  localSubmissions.push({ ...resumeParams, date: new Date().toISOString() });
+                  localStorage.setItem('resume_submissions', JSON.stringify(localSubmissions));
+                } catch (e) { /* ignore localStorage errors */ }
+                if (err && err.text && err.text.includes('template ID not found')) {
+                  setError('Resume not sent: The EmailJS template for attachments is missing. Please contact the site administrator.');
+                } else {
+                  setError('Your information was sent but we encountered an issue with your resume. It has been saved locally and will be sent when possible.');
+                }
                 setIsLoading(false);
               });
           };
