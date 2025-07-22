@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com';
 
 const Careers = () => {
   const [formData, setFormData] = useState({
@@ -20,10 +19,6 @@ const Careers = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const serviceID = "service_27q1fot"; 
-  const templateID = "template_ab2d30l"; 
-  const userID = "nIhs8qhJhAw1CUatf"; 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -33,82 +28,43 @@ const Careers = () => {
     setFormData(prev => ({ ...prev, resume: e.target.files[0] }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    // Prepare the template parameters
-    const templateParams = {
-      to_email: 'hr@kgktechnologies.com',
-      from_name: formData.fullName,
-      from_email: formData.email,
-      phone: formData.phone,
-      linkedIn: formData.linkedIn,
-      position: formData.position,
-      workAuth: formData.workAuth,
-      location: formData.location,
-      availability: formData.availability,
-      comments: formData.comments,
-      reply_to: formData.email
-    };
-
-    // Send email with EmailJS
-    emailjs.send(serviceID, templateID, templateParams, userID)
-      .then((response) => {
-        console.log('Email sent successfully!', response.status, response.text);
-        
-        // If there's a resume, send it as an attachment in a separate email
-        if (formData.resume) {
-          const reader = new FileReader();
-          reader.onload = function(event) {
-            // EmailJS template must have a variable named 'attachment' and be set to accept attachments
-            const resumeParams = {
-              to_email: 'hr@kgktechnologies.com',
-              from_name: formData.fullName,
-              from_email: formData.email,
-              subject: `Resume from ${formData.fullName}`,
-              message: `Please find attached the resume from ${formData.fullName} who applied for ${formData.position}.`,
-              reply_to: formData.email,
-              attachment: event.target.result, // send the full base64 string (with prefix)
-              attachment_name: formData.resume.name
-            };
-
-            // IMPORTANT: Make sure you have a template named 'template_resume_attachment' in EmailJS
-            // and that it has a variable named 'attachment' for the file, and is set to accept attachments.
-            emailjs.send(serviceID, 'template_resume_attachment', resumeParams, userID)
-              .then((res) => {
-                console.log('Resume sent successfully!', res.status, res.text);
-                setSubmitted(true);
-                setIsLoading(false);
-              })
-              .catch((err) => {
-                console.error('Failed to send resume:', err);
-                // Save to localStorage as fallback
-                try {
-                  const localSubmissions = JSON.parse(localStorage.getItem('resume_submissions') || '[]');
-                  localSubmissions.push({ ...resumeParams, date: new Date().toISOString() });
-                  localStorage.setItem('resume_submissions', JSON.stringify(localSubmissions));
-                } catch (e) { /* ignore localStorage errors */ }
-                if (err && err.text && err.text.includes('template ID not found')) {
-                  setError('Resume not sent: The EmailJS template for attachments is missing. Please contact the site administrator.');
-                } else {
-                  setError('Your information was sent but we encountered an issue with your resume. It has been saved locally and will be sent when possible.');
-                }
-                setIsLoading(false);
-              });
-          };
-          reader.readAsDataURL(formData.resume);
-        } else {
-          setSubmitted(true);
-          setIsLoading(false);
+    try {
+      const formDataToSend = new FormData();
+      
+      // Append all form fields to FormData
+      Object.keys(formData).forEach(key => {
+        if (key !== 'resume' && formData[key]) {
+          formDataToSend.append(key, formData[key]);
         }
-      })
-      .catch((err) => {
-        console.error('Failed to send email:', err);
-        setError('Failed to submit your information. Please try again later.');
-        setIsLoading(false);
       });
+      
+      // Append the resume file if it exists
+      if (formData.resume) {
+        formDataToSend.append('resume', formData.resume);
+      }
+
+      // Send to your backend API
+      const response = await fetch('http://13.233.103.113:8000/submit', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Failed to submit your information. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -516,7 +472,7 @@ const Careers = () => {
           </motion.div>
           <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#6e48aa' }}>Thank You!</h2>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto 30px' }}>
-            Thank you for submitting your interest! We've sent your information to our HR team at hr@kgktechnologies.com and we'll reach out when opportunities open up that match your profile.
+            Thank you for submitting your interest! We've received your information and we'll reach out when opportunities open up that match your profile.
           </p>
           <motion.button
             whileHover={{ scale: 1.03, boxShadow: '0 5px 15px rgba(110, 72, 170, 0.4)' }}
