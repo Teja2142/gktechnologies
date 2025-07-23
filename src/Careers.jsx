@@ -49,7 +49,7 @@ const Careers = () => {
       }
 
       // Send to your backend API
-      const response = await fetch('http://13.233.103.113:8000/submit', {
+      const response = await fetch('https://jenkins-server.kgktechnologies.com/submit', {
         method: 'POST',
         body: formDataToSend
       });
