@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 const Careers = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    full_name: '',
     email: '',
     phone: '',
-    linkedIn: '',
-    position: '',
-    workAuth: '',
-    location: '',
+    linkedin: '',
+    role: '',
+    work_auth_status: '',
+    preferred_location: '',
     availability: '',
     comments: '',
     resume: null
@@ -48,7 +48,7 @@ const Careers = () => {
         formDataToSend.append('resume', formData.resume);
       }
 
-      // Send to your backend API
+      // Send to backend API
       const response = await fetch('https://jenkins-server.kgktechnologies.com/submit', {
         method: 'POST',
         body: formDataToSend
@@ -178,8 +178,8 @@ const Careers = () => {
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Full Name *</label>
                 <input
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="full_name"
+                  value={formData.full_name}
                   onChange={handleChange}
                   required
                   style={{
@@ -237,8 +237,8 @@ const Careers = () => {
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>LinkedIn Profile</label>
                 <input
                   type="url"
-                  name="linkedIn"
-                  value={formData.linkedIn}
+                  name="linkedin"
+                  value={formData.linkedin}
                   onChange={handleChange}
                   style={{
                     width: '100%',
@@ -254,11 +254,11 @@ const Careers = () => {
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '20px' }}>
               <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Position/Role Interested In *</label>
+                <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Role Interested In *</label>
                 <input
                   type="text"
-                  name="position"
-                  value={formData.position}
+                  name="role"
+                  value={formData.role}
                   onChange={handleChange}
                   required
                   style={{
@@ -275,8 +275,8 @@ const Careers = () => {
               <div>
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Work Authorization Status *</label>
                 <select
-                  name="workAuth"
-                  value={formData.workAuth}
+                  name="work_auth_status"
+                  value={formData.work_auth_status}
                   onChange={handleChange}
                   required
                   style={{
@@ -294,7 +294,7 @@ const Careers = () => {
                   <option value="CPT">CPT</option>
                   <option value="H1B">H1B</option>
                   <option value="Green Card">Green Card</option>
-                  <option value="US Citizen">US Citizen</option>
+                  <option value="Citizen">US Citizen</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -304,8 +304,8 @@ const Careers = () => {
               <div>
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Preferred Location *</label>
                 <select
-                  name="location"
-                  value={formData.location}
+                  name="preferred_location"
+                  value={formData.preferred_location}
                   onChange={handleChange}
                   required
                   style={{
@@ -322,6 +322,7 @@ const Careers = () => {
                   <option value="Remote">Remote</option>
                   <option value="On-site">On-site</option>
                   <option value="Hybrid">Hybrid</option>
+                  <option value="Hyderabad">Hyderabad</option>
                   <option value="Flexible">Flexible</option>
                 </select>
               </div>
@@ -342,7 +343,7 @@ const Careers = () => {
                     fontSize: '16px',
                     transition: 'all 0.3s'
                   }}
-                  placeholder="e.g., Immediately, 2 weeks notice, etc."
+                  placeholder="e.g., Immediate, 2 weeks notice, etc."
                 />
               </div>
             </div>
@@ -480,13 +481,13 @@ const Careers = () => {
             onClick={() => {
               setSubmitted(false);
               setFormData({
-                fullName: '',
+                full_name: '',
                 email: '',
                 phone: '',
-                linkedIn: '',
-                position: '',
-                workAuth: '',
-                location: '',
+                linkedin: '',
+                role: '',
+                work_auth_status: '',
+                preferred_location: '',
                 availability: '',
                 comments: '',
                 resume: null
