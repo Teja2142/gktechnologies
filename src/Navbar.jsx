@@ -62,6 +62,7 @@ const Navbar = () => {
       <Link to="/Careers" style={styles.navLink}>Careers</Link>
       <Link to="/About" style={styles.navLink}>About Us</Link>
       <Link to="/Contact" style={styles.navLink}>Contact Us</Link>
+      <Link to="/Login" style={styles.navLink}>Login</Link>
       <Link to="/Blog" style={styles.navLink}></Link>
     </>
   );

@@ -1,293 +1,543 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react';
 
-const CareersPage = () => {
+// Mock components to replace the UI library imports
+const Card = ({ children, className, style }) => (
+  <div className={`card ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+const CardContent = ({ children, className }) => (
+  <div className={`card-content ${className}`}>
+    {children}
+  </div>
+);
+
+const Button = ({ children, variant, onClick, className }) => (
+  <button className={`btn ${variant} ${className}`} onClick={onClick}>
+    {children}
+  </button>
+);
+
+const Input = ({ placeholder, value, onChange, className }) => (
+  <input
+    type="text"
+    placeholder={placeholder}
+    value={value}
+    onChange={onChange}
+    className={`input ${className}`}
+  />
+);
+
+// Jobs Component
+export default function Jobs() {
   const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  const [search, setSearch] = useState("");
+  const [locationFilter, setLocationFilter] = useState("");
+  const [activeOnly, setActiveOnly] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expandedJob, setExpandedJob] = useState(null);
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch("/api/jobpostings/");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+    setIsLoading(true);
+    fetch("http://127.0.0.1:8000/api/v1/careers/jobs/")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch jobs');
         }
-        const data = await response.json();
-        setJobs(data);
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-        setError("Failed to load job postings. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchJobs();
+        return res.json();
+      })
+      .then((data) => {
+        setJobs(data.results || []);
+        setFilteredJobs(data.results || []);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching jobs:", err);
+        setError(err.message);
+        setIsLoading(false);
+      });
   }, []);
 
-  const toggleJobExpansion = (id) => {
-    setExpandedJob(expandedJob === id ? null : id);
+  useEffect(() => {
+    let result = jobs;
+
+    if (search) {
+      result = result.filter((job) =>
+        job.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (locationFilter) {
+      result = result.filter(
+        (job) => job.location.toLowerCase() === locationFilter.toLowerCase()
+      );
+    }
+
+    if (activeOnly) {
+      result = result.filter((job) => job.is_active);
+    }
+
+    setFilteredJobs(result);
+  }, [search, locationFilter, activeOnly, jobs]);
+
+  const uniqueLocations = [...new Set(jobs.map((job) => job.location))];
+
+  // Reset filters
+  const resetFilters = () => {
+    setSearch("");
+    setLocationFilter("");
+    setActiveOnly(false);
   };
 
-  if (loading) {
-    return (
-      <div style={{ 
-        display: "flex", 
-        justifyContent: "center", 
-        alignItems: "center", 
-        minHeight: "200px" 
-      }}>
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          style={{
-            width: "40px",
-            height: "40px",
-            border: "4px solid #f3f3f3",
-            borderTop: "4px solid #3498db",
-            borderRadius: "50%"
-          }}
-        />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div style={{ 
-        maxWidth: "900px", 
-        margin: "auto", 
-        padding: "40px 20px",
-        textAlign: "center",
-        color: "#e74c3c"
-      }}>
-        <div style={{
-          background: "rgba(231, 76, 60, 0.1)",
-          padding: "20px",
-          borderRadius: "8px",
-          border: "1px solid rgba(231, 76, 60, 0.3)"
-        }}>
-          <h3>Error Loading Jobs</h3>
-          <p>{error}</p>
-          <button 
-            onClick={() => window.location.reload()}
-            style={{
-              marginTop: "15px",
-              padding: "10px 20px",
-              background: "#3498db",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer"
-            }}
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      style={{ 
-        maxWidth: "900px", 
-        margin: "40px auto", 
-        padding: "0 20px",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-      }}
-    >
-      <motion.h2
-        initial={{ y: -20 }}
-        animate={{ y: 0 }}
-        style={{
-          color: "#2c3e50",
-          marginBottom: "30px",
-          fontSize: "32px",
-          fontWeight: "600",
-          textAlign: "center"
-        }}
-      >
-        Career Opportunities
-      </motion.h2>
-
-      {jobs.length === 0 ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          style={{
-            background: "rgba(52, 152, 219, 0.1)",
-            padding: "30px",
-            borderRadius: "8px",
-            textAlign: "center",
-            border: "1px solid rgba(52, 152, 219, 0.3)"
-          }}
-        >
-          <h3 style={{ color: "#2c3e50", marginBottom: "15px" }}>No Current Openings</h3>
-          <p style={{ color: "#7f8c8d", lineHeight: "1.6" }}>
-            We don't have any open positions at the moment, but we're always looking for talented individuals. 
-            Please check back later or submit your resume to our talent pool.
-          </p>
-        </motion.div>
-      ) : (
-        <div style={{ display: "grid", gap: "20px" }}>
-          {jobs.map((job) => (
-            <motion.div
-              key={job.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                background: "#fff",
-                borderRadius: "10px",
-                boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
-                overflow: "hidden",
-                border: "1px solid #eee"
-              }}
+    <div style={styles.pageContainer}>
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+          from { transform: translateX(-20px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+        
+        @keyframes shimmer {
+          0% { background-position: -1000px 0; }
+          100% { background-position: 1000px 0; }
+        }
+        
+        .card {
+          border-radius: 16px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+          overflow: hidden;
+          background: white;
+        }
+        
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-content {
+          padding: 20px;
+        }
+        
+        .btn {
+          padding: 10px 20px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+          transform: translateY(-2px);
+        }
+        
+        .outline {
+          background: transparent;
+          border: 1px solid #3b82f6;
+          color: #3b82f6;
+        }
+        
+        .outline:hover {
+          background: #3b82f6;
+          color: white;
+        }
+        
+        .input {
+          padding: 12px 16px;
+          border-radius: 8px;
+          border: 1px solid #d1d5db;
+          width: 100%;
+          box-sizing: border-box;
+          transition: all 0.2s ease;
+        }
+        
+        .input:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .skeleton {
+          background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+          background-size: 1000px 100%;
+          animation: shimmer 2s infinite linear;
+          border-radius: 4px;
+        }
+      `}</style>
+      
+      <div style={styles.header}>
+        <h1 style={styles.title}>Career Opportunities</h1>
+        <p style={styles.subtitle}>Find your next professional challenge</p>
+      </div>
+      
+      <div style={styles.gridContainer}>
+        {/* Filters Section */}
+        <div style={styles.filtersContainer}>
+          <div style={styles.filtersCard}>
+            <h2 style={styles.filtersTitle}>Filters</h2>
+            
+            {/* Search Input */}
+            <Input
+              placeholder="Search jobs..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={styles.input}
+            />
+            
+            {/* Location Filter */}
+            <h3 style={styles.filterSubtitle}>Location</h3>
+            <select
+              value={locationFilter}
+              onChange={(e) => setLocationFilter(e.target.value)}
+              style={styles.select}
             >
-              <div 
-                style={{
-                  padding: "20px",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  background: expandedJob === job.id ? "#f8f9fa" : "white"
-                }}
-                onClick={() => toggleJobExpansion(job.id)}
-              >
-                <div>
-                  <h3 style={{ 
-                    color: "#2c3e50", 
-                    marginBottom: "5px",
-                    fontSize: "20px"
-                  }}>
-                    {job.title}
-                  </h3>
-                  <div style={{ display: "flex", gap: "20px", color: "#7f8c8d" }}>
-                    <span>
-                      <strong style={{ color: "#34495e" }}>Department:</strong> {job.department}
-                    </span>
-                    <span>
-                      <strong style={{ color: "#34495e" }}>Location:</strong> {job.location}
-                    </span>
-                  </div>
-                </div>
-                <motion.div
-                  animate={{ rotate: expandedJob === job.id ? 180 : 0 }}
-                  style={{
-                    fontSize: "24px",
-                    color: "#3498db"
-                  }}
-                >
-                  ▼
-                </motion.div>
-              </div>
-
-              {expandedJob === job.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{
-                    padding: "0 20px 20px 20px",
-                    borderTop: "1px solid #eee"
-                  }}
-                >
-                  <div style={{ marginBottom: "20px" }}>
-                    <h4 style={{ 
-                      color: "#2c3e50", 
-                      marginBottom: "10px",
-                      fontSize: "18px"
-                    }}>
-                      Job Description
-                    </h4>
-                    <p style={{ lineHeight: "1.6", color: "#34495e" }}>{job.description}</p>
-                  </div>
-
-                  <div style={{ marginBottom: "20px" }}>
-                    <h4 style={{ 
-                      color: "#2c3e50", 
-                      marginBottom: "10px",
-                      fontSize: "18px"
-                    }}>
-                      Requirements
-                    </h4>
-                    <ul style={{ 
-                      paddingLeft: "20px",
-                      lineHeight: "1.6",
-                      color: "#34495e"
-                    }}>
-                      {job.requirements.split('\n').map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div style={{ marginBottom: "20px" }}>
-                    <h4 style={{ 
-                      color: "#2c3e50", 
-                      marginBottom: "10px",
-                      fontSize: "18px"
-                    }}>
-                      Responsibilities
-                    </h4>
-                    <ul style={{ 
-                      paddingLeft: "20px",
-                      lineHeight: "1.6",
-                      color: "#34495e"
-                    }}>
-                      {job.responsibilities.split('\n').map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div style={{ 
-                    display: "flex", 
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginTop: "20px",
-                    paddingTop: "15px",
-                    borderTop: "1px dashed #ddd"
-                  }}>
-                    <span style={{ color: "#7f8c8d", fontSize: "14px" }}>
-                      Posted on: {new Date(job.created_at).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
-                    </span>
-                    <motion.button
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                      style={{
-                        padding: "10px 20px",
-                        background: "#3498db",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                        fontWeight: "500"
-                      }}
-                    >
-                      Apply Now
-                    </motion.button>
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
+              <option value="">All Locations</option>
+              {uniqueLocations.map((loc, idx) => (
+                <option key={idx} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
+            
+            {/* Active Toggle */}
+            <label style={styles.toggleLabel}>
+              <input
+                type="checkbox"
+                checked={activeOnly}
+                onChange={() => setActiveOnly(!activeOnly)}
+                style={styles.checkbox}
+              />
+              <span style={styles.toggleText}>Active jobs only</span>
+            </label>
+            
+            {/* Reset Button */}
+            <Button 
+              variant="outline" 
+              onClick={resetFilters}
+              style={styles.resetButton}
+            >
+              Reset Filters
+            </Button>
+          </div>
         </div>
-      )}
-    </motion.div>
+        
+        {/* Jobs Section */}
+        <div style={styles.jobsContainer}>
+          {isLoading ? (
+            <div style={styles.loadingContainer}>
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <div key={item} style={styles.skeletonCard}>
+                  <div style={styles.skeletonLine} className="skeleton"></div>
+                  <div style={styles.skeletonLineShort} className="skeleton"></div>
+                  <div style={styles.skeletonLine} className="skeleton"></div>
+                  <div style={styles.skeletonLine} className="skeleton"></div>
+                </div>
+              ))}
+            </div>
+          ) : error ? (
+            <div style={styles.errorContainer}>
+              <div style={styles.errorIcon}>⚠️</div>
+              <h3 style={styles.errorTitle}>Unable to load jobs</h3>
+              <p style={styles.errorMessage}>{error}</p>
+              <Button onClick={() => window.location.reload()} style={styles.retryButton}>
+                Try Again
+              </Button>
+            </div>
+          ) : filteredJobs.length > 0 ? (
+            <div style={styles.jobsGrid}>
+              {filteredJobs.map((job) => (
+                <div 
+                  key={job.id} 
+                  style={styles.jobCard}
+                  className="card"
+                >
+                  <CardContent style={styles.jobCardContent}>
+                    <h3 style={styles.jobTitle}>{job.title}</h3>
+                    <p style={styles.jobDescription} className="line-clamp-3">
+                      {job.description}
+                    </p>
+                    <p style={styles.jobLocation}>
+                      📍 {job.location}
+                    </p>
+                    <p style={{
+                      ...styles.jobStatus,
+                      color: job.is_active ? '#10b981' : '#ef4444'
+                    }}>
+                      {job.is_active ? "Active" : "Closed"}
+                    </p>
+                    <p style={styles.jobDate}>
+                      Posted: {new Date(job.created_at).toLocaleDateString()}
+                    </p>
+                    <div style={styles.applyButtonContainer}>
+                      <Button style={styles.applyButton}>
+                        View Details
+                      </Button>
+                    </div>
+                  </CardContent>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={styles.noResults}>
+              <div style={styles.noResultsIcon}>🔍</div>
+              <h3 style={styles.noResultsTitle}>No jobs found</h3>
+              <p style={styles.noResultsText}>
+                Try adjusting your search filters or search terms
+              </p>
+              <Button onClick={resetFilters} style={styles.noResultsButton}>
+                Reset Filters
+              </Button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
-export default CareersPage;
+// Styles
+const styles = {
+  pageContainer: {
+    minHeight: '100vh',
+    backgroundColor: '#f9fafb',
+    padding: '20px',
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif"
+  },
+  header: {
+    textAlign: 'center',
+    marginBottom: '30px',
+    animation: 'fadeIn 0.8s ease-out'
+  },
+  title: {
+    fontSize: '2.5rem',
+    fontWeight: '700',
+    color: '#1f2937',
+    margin: '0 0 10px 0',
+    background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+  },
+  subtitle: {
+    fontSize: '1.1rem',
+    color: '#6b7280',
+    margin: '0'
+  },
+  gridContainer: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 3fr',
+    gap: '24px',
+    maxWidth: '1200px',
+    margin: '0 auto'
+  },
+  filtersContainer: {
+    animation: 'slideIn 0.5s ease-out'
+  },
+  filtersCard: {
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    padding: '24px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    position: 'sticky',
+    top: '20px'
+  },
+  filtersTitle: {
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    margin: '0 0 20px 0',
+    color: '#1f2937'
+  },
+  input: {
+    marginBottom: '20px'
+  },
+  filterSubtitle: {
+    fontSize: '1rem',
+    fontWeight: '600',
+    margin: '0 0 10px 0',
+    color: '#374151'
+  },
+  select: {
+    width: '100%',
+    padding: '12px 16px',
+    borderRadius: '8px',
+    border: '1px solid #d1d5db',
+    marginBottom: '20px',
+    backgroundColor: 'white',
+    transition: 'all 0.2s ease'
+  },
+  toggleLabel: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '25px',
+    cursor: 'pointer'
+  },
+  checkbox: {
+    marginRight: '10px',
+    width: '18px',
+    height: '18px',
+    accentColor: '#3b82f6'
+  },
+  toggleText: {
+    color: '#374151',
+    fontSize: '0.95rem'
+  },
+  resetButton: {
+    width: '100%'
+  },
+  jobsContainer: {
+    minHeight: '600px'
+  },
+  jobsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gap: '24px'
+  },
+  jobCard: {
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    animation: 'fadeIn 0.6s ease-out',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  jobCardContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  jobTitle: {
+    fontSize: '1.25rem',
+    fontWeight: '600',
+    margin: '0 0 12px 0',
+    color: '#1f2937'
+  },
+  jobDescription: {
+    fontSize: '0.95rem',
+    color: '#6b7280',
+    lineHeight: '1.5',
+    margin: '0 0 15px 0',
+    flex: 1
+  },
+  jobLocation: {
+    fontSize: '0.9rem',
+    color: '#4b5563',
+    margin: '0 0 8px 0',
+    fontWeight: '500'
+  },
+  jobStatus: {
+    fontSize: '0.85rem',
+    fontWeight: '600',
+    margin: '0 0 8px 0'
+  },
+  jobDate: {
+    fontSize: '0.8rem',
+    color: '#9ca3af',
+    margin: '0 0 15px 0'
+  },
+  applyButtonContainer: {
+    marginTop: 'auto'
+  },
+  applyButton: {
+    width: '100%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    fontWeight: '600'
+  },
+  loadingContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gap: '24px'
+  },
+  skeletonCard: {
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    padding: '20px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    height: '250px'
+  },
+  skeletonLine: {
+    height: '16px',
+    backgroundColor: '#f0f0f0',
+    marginBottom: '12px',
+    borderRadius: '4px'
+  },
+  skeletonLineShort: {
+    height: '16px',
+    width: '60%',
+    backgroundColor: '#f0f0f0',
+    marginBottom: '12px',
+    borderRadius: '4px'
+  },
+  errorContainer: {
+    textAlign: 'center',
+    padding: '60px 20px',
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    animation: 'fadeIn 0.5s ease-out'
+  },
+  errorIcon: {
+    fontSize: '3rem',
+    marginBottom: '20px'
+  },
+  errorTitle: {
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    color: '#1f2937',
+    margin: '0 0 10px 0'
+  },
+  errorMessage: {
+    color: '#6b7280',
+    margin: '0 0 25px 0'
+  },
+  retryButton: {
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    fontWeight: '600'
+  },
+  noResults: {
+    textAlign: 'center',
+    padding: '60px 20px',
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    animation: 'fadeIn 0.5s ease-out'
+  },
+  noResultsIcon: {
+    fontSize: '3rem',
+    marginBottom: '20px'
+  },
+  noResultsTitle: {
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    color: '#1f2937',
+    margin: '0 0 10px 0'
+  },
+  noResultsText: {
+    color: '#6b7280',
+    margin: '0 0 25px 0'
+  },
+  noResultsButton: {
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    fontWeight: '600'
+  }
+};

@@ -16,6 +16,8 @@ import Digital from "./Digital";
 import Training from "./Training";
 import PostJobs from "./PostJobs"; // Importing PostJobs component
 import CareersPage from "./CareersPage"; // Importing CareersPage component
+import Register from "./Register";
+import Login from "./Login";
 
 
 const App = () => {
@@ -37,6 +39,8 @@ const App = () => {
                 <Route path="/Training" element={<Training/>} />
                 <Route path="/PostJobs" element={<PostJobs />} /> {/* Route for posting jobs */}
                 <Route path="/CareersPage" element={<CareersPage />} /> {/* Route for viewing careers */}
+                <Route path="/Register" element={<Register />} /> {/* Route for user registration */}
+                <Route path="/Login" element={<Login />} /> {/* Route for user login */}
                 <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             <Footer/>

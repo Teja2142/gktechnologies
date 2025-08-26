@@ -171,7 +171,7 @@ const Home = () => {
         }}>
             {[
             { img: "https://fuestech.com/wp-content/uploads/2024/07/KT-CC-10.jpg", title: "Mobile Development", link: "/Mobile" },
-            { img: "https://admin.12grids.com/uploads/blogs/original_cover_images/abcs-of-dynamic-web-application-development-12grids.jpg", title: "Web Applications", link: "/Web" },
+            { img: "https://storage.needpix.com/rsynced_images/web-4003037_1280.jpg", title: "Web Applications", link: "/Web" },
             { img: "https://media.istockphoto.com/id/1317706831/photo/api-application-programming-interface-software-development-tool-business-modern-technology.jpg?s=612x612&w=0&k=20&c=V4hdG0NiqKhbk4VFwFktNs6bhq8yXo_Tqd__8vKZqdk=", title: "API Services", link: "/Api" },
             { img: "https://blog.1byte.com/wp-content/uploads/2023/04/overview-4-1024x683.jpg", title: "Cloud Infrastructure", link: "/Cloud" },
             { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuL1Lm8-i23sX4lGnDgmV6SE3JA1VquVOA&s", title: "IoT Solutions", link: "/IoT" },
