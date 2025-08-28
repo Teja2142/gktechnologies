@@ -137,7 +137,7 @@ const styles = {
   },
   contactItem: { display: "flex", alignItems: "center", gap: "8px" },
   socialSection: {
-    width: "45%", backgroundColor: "#006c94", display: "flex", alignItems: "center", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px"
+    width: "55%", backgroundColor: "#006c94", display: "flex", alignItems: "center", color: "white", clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0 100%)", position: "absolute", right: 0, height: "100%", paddingRight: "5%", justifyContent: "flex-end", gap: "15px"
   },
   iconLink: { color: "white", textDecoration: "none", fontSize: "14px" },
   navbarContainer: {

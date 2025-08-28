@@ -2,13 +2,28 @@ import React from "react";
 
 const AuthSystem = () => {
   const [isLogin, setIsLogin] = React.useState(true);
+  const [showForgotPassword, setShowForgotPassword] = React.useState(false);
+  const [showOtpVerification, setShowOtpVerification] = React.useState(false);
+  const [showResetPassword, setShowResetPassword] = React.useState(false);
   const [loginData, setLoginData] = React.useState({ email: '', password: '' });
   const [registerData, setRegisterData] = React.useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const [forgotPasswordData, setForgotPasswordData] = React.useState({ email: '' });
+  const [otpData, setOtpData] = React.useState({ otp: '' });
+  const [resetPasswordData, setResetPasswordData] = React.useState({ password: '', confirmPassword: '' });
   const [errors, setErrors] = React.useState({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [otpSent, setOtpSent] = React.useState(false);
+  const [countdown, setCountdown] = React.useState(0);
   
   const toggleForm = () => {
     setIsLogin(!isLogin);
+    setErrors({});
+  };
+  
+  const startForgotPassword = () => {
+    setShowForgotPassword(true);
+    setShowOtpVerification(false);
+    setShowResetPassword(false);
     setErrors({});
   };
   
@@ -24,6 +39,33 @@ const AuthSystem = () => {
     const { name, value } = e.target;
     setRegisterData({
       ...registerData,
+      [name]: value
+    });
+  };
+  
+  const handleForgotPasswordChange = (e) => {
+    const { name, value } = e.target;
+    setForgotPasswordData({
+      ...forgotPasswordData,
+      [name]: value
+    });
+  };
+  
+  const handleOtpChange = (e) => {
+    const { name, value } = e.target;
+    // Only allow numbers
+    if (/^\d*$/.test(value)) {
+      setOtpData({
+        ...otpData,
+        [name]: value
+      });
+    }
+  };
+  
+  const handleResetPasswordChange = (e) => {
+    const { name, value } = e.target;
+    setResetPasswordData({
+      ...resetPasswordData,
       [name]: value
     });
   };
@@ -51,6 +93,40 @@ const AuthSystem = () => {
     else if (registerData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
     
     if (registerData.password !== registerData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
+  const validateForgotPassword = () => {
+    const newErrors = {};
+    
+    if (!forgotPasswordData.email) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(forgotPasswordData.email)) newErrors.email = 'Email is invalid';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
+  const validateOtp = () => {
+    const newErrors = {};
+    
+    if (!otpData.otp) newErrors.otp = 'OTP is required';
+    else if (otpData.otp.length !== 6) newErrors.otp = 'OTP must be 6 digits';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
+  const validateResetPassword = () => {
+    const newErrors = {};
+    
+    if (!resetPasswordData.password) newErrors.password = 'Password is required';
+    else if (resetPasswordData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+    
+    if (resetPasswordData.password !== resetPasswordData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
     
@@ -86,13 +162,300 @@ const AuthSystem = () => {
     }
   };
   
+  const handleForgotPasswordSubmit = (e) => {
+    e.preventDefault();
+    
+    if (validateForgotPassword()) {
+      setIsSubmitting(true);
+      
+      // Simulate API call to send OTP
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setOtpSent(true);
+        setShowOtpVerification(true);
+        setCountdown(30); // 30 seconds countdown
+        
+        // Start countdown timer
+        const timer = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+        
+        alert(`OTP sent to ${forgotPasswordData.email}`);
+      }, 1500);
+    }
+  };
+  
+  const handleOtpSubmit = (e) => {
+    e.preventDefault();
+    
+    if (validateOtp()) {
+      setIsSubmitting(true);
+      
+      // Simulate OTP verification
+      setTimeout(() => {
+        setIsSubmitting(false);
+        
+        // In a real app, you would verify the OTP here
+        // For demo purposes, we'll assume any 6-digit code works
+        if (otpData.otp.length === 6) {
+          setShowOtpVerification(false);
+          setShowResetPassword(true);
+        } else {
+          setErrors({ otp: 'Invalid OTP. Please try again.' });
+        }
+      }, 1500);
+    }
+  };
+  
+  const handleResetPasswordSubmit = (e) => {
+    e.preventDefault();
+    
+    if (validateResetPassword()) {
+      setIsSubmitting(true);
+      
+      // Simulate password reset API call
+      setTimeout(() => {
+        setIsSubmitting(false);
+        alert('Password reset successful!');
+        
+        // Reset all states and go back to login
+        setShowForgotPassword(false);
+        setShowOtpVerification(false);
+        setShowResetPassword(false);
+        setForgotPasswordData({ email: '' });
+        setOtpData({ otp: '' });
+        setResetPasswordData({ password: '', confirmPassword: '' });
+        setOtpSent(false);
+      }, 1500);
+    }
+  };
+  
+  const resendOtp = () => {
+    if (countdown === 0) {
+      setIsSubmitting(true);
+      
+      // Simulate resend OTP API call
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setCountdown(30);
+        alert(`OTP resent to ${forgotPasswordData.email}`);
+        
+        // Start countdown timer again
+        const timer = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      }, 1000);
+    }
+  };
+  
+  const goBackToLogin = () => {
+    setShowForgotPassword(false);
+    setShowOtpVerification(false);
+    setShowResetPassword(false);
+    setForgotPasswordData({ email: '' });
+    setOtpData({ otp: '' });
+    setResetPasswordData({ password: '', confirmPassword: '' });
+    setErrors({});
+    setOtpSent(false);
+  };
+  
   return (
     <div style={styles.container}>
       <div style={{
         ...styles.formContainer,
-        animation: isLogin ? 'slideRight 0.5s ease forwards' : 'slideLeft 0.5s ease forwards'
+        animation: isLogin && !showForgotPassword ? 'slideRight 0.5s ease forwards' : 'slideLeft 0.5s ease forwards'
       }}>
-        {isLogin ? (
+        {showForgotPassword ? (
+          showOtpVerification ? (
+            showResetPassword ? (
+              // Reset Password Form
+              <>
+                <div style={styles.backButtonContainer}>
+                  <button onClick={goBackToLogin} style={styles.backButton}>
+                    &larr; Back to Login
+                  </button>
+                </div>
+                
+                <h1 style={styles.title}>Reset Password</h1>
+                <p style={styles.subtitle}>Enter your new password below</p>
+                
+                <form onSubmit={handleResetPasswordSubmit} style={styles.form}>
+                  <div style={styles.inputGroup}>
+                    <input
+                      type="password"
+                      name="password"
+                      value={resetPasswordData.password}
+                      onChange={handleResetPasswordChange}
+                      placeholder="New Password"
+                      style={{
+                        ...styles.input,
+                        ...(errors.password && styles.inputError),
+                        animation: 'slideIn 0.5s ease forwards',
+                        animationDelay: '0.1s'
+                      }}
+                    />
+                    {errors.password && <span style={styles.errorText}>{errors.password}</span>}
+                  </div>
+                  
+                  <div style={styles.inputGroup}>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      value={resetPasswordData.confirmPassword}
+                      onChange={handleResetPasswordChange}
+                      placeholder="Confirm New Password"
+                      style={{
+                        ...styles.input,
+                        ...(errors.confirmPassword && styles.inputError),
+                        animation: 'slideIn 0.5s ease forwards',
+                        animationDelay: '0.2s'
+                      }}
+                    />
+                    {errors.confirmPassword && <span style={styles.errorText}>{errors.confirmPassword}</span>}
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    style={{
+                      ...styles.submitButton,
+                      ...(isSubmitting && styles.submitButtonDisabled)
+                    }}
+                  >
+                    {isSubmitting ? (
+                      <div style={styles.spinner}></div>
+                    ) : (
+                      'Reset Password'
+                    )}
+                  </button>
+                </form>
+              </>
+            ) : (
+              // OTP Verification Form
+              <>
+                <div style={styles.backButtonContainer}>
+                  <button onClick={() => { setShowOtpVerification(false); }} style={styles.backButton}>
+                    &larr; Back
+                  </button>
+                </div>
+                
+                <h1 style={styles.title}>Verify OTP</h1>
+                <p style={styles.subtitle}>Enter the 6-digit code sent to {forgotPasswordData.email}</p>
+                
+                <form onSubmit={handleOtpSubmit} style={styles.form}>
+                  <div style={styles.inputGroup}>
+                    <input
+                      type="text"
+                      name="otp"
+                      value={otpData.otp}
+                      onChange={handleOtpChange}
+                      placeholder="Enter OTP"
+                      maxLength="6"
+                      style={{
+                        ...styles.input,
+                        ...(errors.otp && styles.inputError),
+                        animation: 'slideIn 0.5s ease forwards',
+                        animationDelay: '0.1s',
+                        textAlign: 'center',
+                        letterSpacing: '10px',
+                        fontSize: '20px',
+                        fontWeight: 'bold'
+                      }}
+                    />
+                    {errors.otp && <span style={styles.errorText}>{errors.otp}</span>}
+                  </div>
+                  
+                  <div style={styles.otpResend}>
+                    <p style={styles.otpText}>
+                      Didn't receive the code?{' '}
+                      {countdown > 0 ? (
+                        <span style={styles.countdown}>Resend in {countdown}s</span>
+                      ) : (
+                        <a href="#" onClick={resendOtp} style={styles.resendLink}>
+                          Resend OTP
+                        </a>
+                      )}
+                    </p>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    style={{
+                      ...styles.submitButton,
+                      ...(isSubmitting && styles.submitButtonDisabled)
+                    }}
+                  >
+                    {isSubmitting ? (
+                      <div style={styles.spinner}></div>
+                    ) : (
+                      'Verify OTP'
+                    )}
+                  </button>
+                </form>
+              </>
+            )
+          ) : (
+            // Forgot Password Form
+            <>
+              <div style={styles.backButtonContainer}>
+                <button onClick={goBackToLogin} style={styles.backButton}>
+                  &larr; Back to Login
+                </button>
+              </div>
+              
+              <h1 style={styles.title}>Reset Password</h1>
+              <p style={styles.subtitle}>Enter your email to receive a verification code</p>
+              
+              <form onSubmit={handleForgotPasswordSubmit} style={styles.form}>
+                <div style={styles.inputGroup}>
+                  <input
+                    type="email"
+                    name="email"
+                    value={forgotPasswordData.email}
+                    onChange={handleForgotPasswordChange}
+                    placeholder="Email Address"
+                    style={{
+                      ...styles.input,
+                      ...(errors.email && styles.inputError),
+                      animation: 'slideIn 0.5s ease forwards',
+                      animationDelay: '0.1s'
+                    }}
+                  />
+                  {errors.email && <span style={styles.errorText}>{errors.email}</span>}
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  style={{
+                    ...styles.submitButton,
+                    ...(isSubmitting && styles.submitButtonDisabled)
+                  }}
+                >
+                  {isSubmitting ? (
+                    <div style={styles.spinner}></div>
+                  ) : (
+                    'Send Verification Code'
+                  )}
+                </button>
+              </form>
+            </>
+          )
+        ) : isLogin ? (
+          // Login Form
           <>
             <h1 style={styles.title}>Welcome Back</h1>
             <p style={styles.subtitle}>Sign in to continue your journey</p>
@@ -137,7 +500,7 @@ const AuthSystem = () => {
                   <input type="checkbox" style={styles.checkbox} />
                   Remember me
                 </label>
-                <a href="#" style={styles.forgotLink}>Forgot Password?</a>
+                <a href="#" onClick={startForgotPassword} style={styles.forgotLink}>Forgot Password?</a>
               </div>
               
               <button
@@ -161,6 +524,7 @@ const AuthSystem = () => {
             </p>
           </>
         ) : (
+          // Register Form
           <>
             <h1 style={styles.title}>Create Account</h1>
             <p style={styles.subtitle}>Join us today and access exclusive features</p>
@@ -258,7 +622,7 @@ const AuthSystem = () => {
             </form>
             
             <p style={styles.switchText}>
-              Already have an account? <a href="/Register" onClick={toggleForm} style={styles.switchLink}>SignUp</a>
+              Already have an account? <a href="#" onClick={toggleForm} style={styles.switchLink}>Sign In</a>
             </p>
           </>
         )}
@@ -329,6 +693,26 @@ const AuthSystem = () => {
               transform: translateY(0) rotate(0deg);
             }
           }
+          
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          
+          @keyframes slideUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
         `}
       </style>
     </div>
@@ -357,20 +741,43 @@ const styles = {
     width: '100%',
     maxWidth: '450px',
     zIndex: 10,
-    position: 'relative'
+    position: 'relative',
+    animation: 'fadeIn 0.5s ease forwards'
+  },
+  backButtonContainer: {
+    marginBottom: '20px'
+  },
+  backButton: {
+    background: 'none',
+    border: 'none',
+    color: '#667eea',
+    cursor: 'pointer',
+    fontSize: '14px',
+    fontWeight: '600',
+    padding: '5px 0',
+    display: 'flex',
+    alignItems: 'center',
+    transition: 'all 0.3s ease',
+    ':hover': {
+      color: '#5a6fd5',
+      transform: 'translateX(-3px)'
+    }
   },
   title: {
     textAlign: 'center',
     color: '#333',
     marginBottom: '10px',
     fontSize: '28px',
-    fontWeight: '600'
+    fontWeight: '600',
+    animation: 'slideUp 0.5s ease forwards'
   },
   subtitle: {
     textAlign: 'center',
     color: '#666',
     marginBottom: '30px',
-    fontSize: '14px'
+    fontSize: '14px',
+    animation: 'slideUp 0.5s ease forwards',
+    animationDelay: '0.1s'
   },
   form: {
     display: 'flex',
@@ -485,6 +892,26 @@ const styles = {
     fontSize: '14px'
   },
   switchLink: {
+    color: '#667eea',
+    textDecoration: 'none',
+    fontWeight: '600',
+    ':hover': {
+      textDecoration: 'underline'
+    }
+  },
+  otpResend: {
+    textAlign: 'center',
+    marginBottom: '20px'
+  },
+  otpText: {
+    color: '#666',
+    fontSize: '14px'
+  },
+  countdown: {
+    color: '#667eea',
+    fontWeight: '600'
+  },
+  resendLink: {
     color: '#667eea',
     textDecoration: 'none',
     fontWeight: '600',
