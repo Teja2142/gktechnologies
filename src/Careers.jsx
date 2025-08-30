@@ -118,7 +118,7 @@ const Careers = () => {
           animate={{ scale: [0.9, 1.05, 1] }}
           transition={{ duration: 0.7 }}
           style={{
-            fontSize: '3rem',
+            fontSize: '2.5rem',
             fontWeight: '700',
             marginBottom: '20px',
             textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
@@ -154,7 +154,7 @@ const Careers = () => {
             boxShadow: '0 5px 15px rgba(0,0,0,0.05)'
           }}
         >
-          <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#6e48aa' }}>Express Your Interest</h2>
+          <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#6e48aa', textAlign: 'center' }}>Express Your Interest</h2>
           
           {error && (
             <div style={{
@@ -172,7 +172,7 @@ const Careers = () => {
             </div>
           )}
           
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} style={{border: '1px solid #eee', padding: '30px', borderRadius: '10px'}}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '20px' }}>
               <div>
                 <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Full Name *</label>
@@ -184,6 +184,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -203,6 +204,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -224,6 +226,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -242,6 +245,7 @@ const Careers = () => {
                   onChange={handleChange}
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -263,6 +267,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -281,6 +286,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '525px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -310,6 +316,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '525px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -337,6 +344,7 @@ const Careers = () => {
                   required
                   style={{
                     width: '100%',
+                    maxWidth: '500px',
                     padding: '12px',
                     border: '1px solid #ddd',
                     borderRadius: '6px',
@@ -348,7 +356,7 @@ const Careers = () => {
               </div>
             </div>
             
-            <div style={{ marginBottom: '20px' }}>
+            <div style={{ marginBottom: '20px', maxWidth: '500px' }}>
               <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Resume Upload *</label>
               <input
                 type="file"
@@ -367,7 +375,7 @@ const Careers = () => {
               />
             </div>
             
-            <div style={{ marginBottom: '30px' }}>
+            <div style={{ marginBottom: '30px', maxWidth: '1000px' }}>
               <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Additional Comments</label>
               <textarea
                 name="comments"
@@ -571,6 +579,16 @@ const Careers = () => {
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+          .form-container {
+            padding: 20px !important;
+          }
+          
+          .input-field {
+            max-width: 100% !important;
+          }
         }
       `}</style>
     </motion.div>
