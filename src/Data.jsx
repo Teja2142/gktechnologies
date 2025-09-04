@@ -165,7 +165,7 @@ const Data = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we provide data-driven insights to help businesses optimize performance and make informed decisions. Our experts use cutting-edge analytics tools to process, visualize, and interpret large datasets.
+              At GK Technologies, we provide data-driven insights to help businesses optimize performance and make informed decisions. Our experts use cutting-edge analytics tools to process, visualize, and interpret large datasets.
             </p>
             
             {/* Data Features Grid */}
@@ -241,7 +241,7 @@ const Data = () => {
             </div>
           </div>
 
-          {/* Technology Stack */}
+          {/* Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -265,7 +265,7 @@ const Data = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our Analytics Technology Stack
+              Our Analytics Technologies Stack
             </h2>
             <p style={{ 
               color: "#555", 

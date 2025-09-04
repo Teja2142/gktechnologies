@@ -165,7 +165,7 @@ const Api = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we specialize in building robust, scalable, and secure APIs that power modern applications. 
+              At GK Technologies, we specialize in building robust, scalable, and secure APIs that power modern applications. 
               Our API solutions enable seamless data exchange, third-party integrations, and enhanced functionality 
               for your digital products.
             </p>
@@ -243,7 +243,7 @@ const Api = () => {
             </div>
           </div>
 
-          {/* API Technology Stack */}
+          {/* API Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -267,7 +267,7 @@ const Api = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our API Technology Stack
+              Our API Technologies Stack
             </h2>
             <p style={{ 
               color: "#555", 

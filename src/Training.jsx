@@ -165,7 +165,7 @@ const Training = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we offer tailored training solutions for both organizations and individuals. Our programs combine industry expertise with practical skills to drive professional growth and organizational success.
+              At GK Technologies, we offer tailored training solutions for both organizations and individuals. Our programs combine industry expertise with practical skills to drive professional growth and organizational success.
             </p>
             
             {/* Training Types Section */}
@@ -364,7 +364,7 @@ const Training = () => {
             </div>
           </div>
 
-          {/* Technology Stack */}
+          {/* Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 

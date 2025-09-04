@@ -165,7 +165,7 @@ const Digital = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we provide data-driven digital marketing strategies to help businesses grow their online presence and attract more customers. Our experts use cutting-edge tools and techniques to maximize your digital potential.
+              At GK Technologies, we provide data-driven digital marketing strategies to help businesses grow their online presence and attract more customers. Our experts use cutting-edge tools and techniques to maximize your digital potential.
             </p>
             
             {/* Digital Features Grid */}
@@ -241,7 +241,7 @@ const Digital = () => {
             </div>
           </div>
 
-          {/* Technology Stack */}
+          {/* Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 

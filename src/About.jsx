@@ -34,7 +34,7 @@ const About = () => {
       {/* Hero Section */}
       <div style={{ textAlign: 'center', padding: '60px 20px', backgroundImage: `url(${aboutBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', color: '#fff', marginBottom: '40px', position: 'relative' }}>
         <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '60px 20px' }}>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '20px' }}>About GK-Technology</h1>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '20px' }}>About GK-Technologies</h1>
           <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
             Empowering small and medium businesses with innovative, practical, and scalable digital solutions tailored to help them thrive in an increasingly connected world.
           </p>
@@ -64,7 +64,7 @@ const About = () => {
             <h3 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: '20px', color: '#2c3e50' }}>Our Mission</h3>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#555' }}>
               To simplify digital transformation for small and medium businesses by providing affordable, high-quality, and customized digital solutions.<br></br>
-              We aim to be a trusted partner for local entrepreneurs, helping them harness the power of technology to grow, compete, and thrive in a digital-first world.
+              We aim to be a trusted partner for local entrepreneurs, helping them harness the power of technologies to grow, compete, and thrive in a digital-first world.
             </p>
           </div>
           <div style={{ flex: '1 1 400px', padding: '30px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)' }}>

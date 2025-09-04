@@ -165,7 +165,7 @@ const Mobile = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we specialize in crafting high-performance, scalable, and user-friendly mobile applications that drive innovation and business growth. Our expert developers leverage the latest technologies to deliver seamless, secure, and engaging mobile experiences tailored to your needs.
+              At GK Technologies, we specialize in crafting high-performance, scalable, and user-friendly mobile applications that drive innovation and business growth. Our expert developers leverage the latest technologies to deliver seamless, secure, and engaging mobile experiences tailored to your needs.
             </p>
             
             {/* Mobile Features Grid */}
@@ -612,7 +612,7 @@ const Mobile = () => {
               }}>
                 <span>📞</span> +1-314-732-7749
               </a>
-              <a href="mailto:mobile@kgktechnology.com" style={{
+              <a href="mailto:hr@kgktechnologies.com" style={{
                 textDecoration: "none",
                 background: "#f7941d",
                 color: "#fff",

@@ -173,7 +173,7 @@ const IoT = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we design and implement cutting-edge IoT solutions that connect devices, 
+              At GK Technologies, we design and implement cutting-edge IoT solutions that connect devices, 
               collect data, and automate processes to drive efficiency and innovation across industries.
             </p>
             
@@ -250,7 +250,7 @@ const IoT = () => {
             </div>
           </div>
 
-          {/* Technology Stack */}
+          {/* Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -274,7 +274,7 @@ const IoT = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our IoT Technology Stack
+              Our IoT Technologies Stack
             </h2>
             <p style={{ 
               color: "#555", 

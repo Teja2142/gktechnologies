@@ -93,7 +93,7 @@ const Home = () => {
         {
             image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
             title: "Innovative Digital Solutions",
-            subtitle: "Transforming businesses with cutting-edge technology"
+            subtitle: "Transforming businesses with cutting-edge technologies"
         },
         {
             image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
@@ -122,13 +122,13 @@ const Home = () => {
     // Testimonials data
     const testimonials = [
         { 
-            text: "GK Technology transformed our business with their innovative solutions. Their team is professional and always delivers on time.", 
+            text: "GK Technologies transformed our business with their innovative solutions. Their team is professional and always delivers on time.", 
             name: "John Smith", 
             role: "CEO, TechCorp",
             avatar: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         { 
-            text: "The mobile app developed by GK Technology exceeded our expectations. User engagement has increased by 45% since launch.", 
+            text: "The mobile app developed by GK Technologies exceeded our expectations. User engagement has increased by 45% since launch.", 
             name: "Sarah Johnson", 
             role: "Product Manager, InnovateCo",
             avatar: "https://randomuser.me/api/portraits/women/44.jpg"
@@ -140,7 +140,7 @@ const Home = () => {
             avatar: "https://randomuser.me/api/portraits/men/29.jpg"
         },
         { 
-            text: "Working with GK Technology has been a game-changer for our digital transformation journey.", 
+            text: "Working with GK Technologies has been a game-changer for our digital transformation journey.", 
             name: "Emily Davis", 
             role: "Digital Director, Enterprise Solutions",
             avatar: "https://randomuser.me/api/portraits/women/65.jpg"
@@ -215,7 +215,7 @@ const Home = () => {
                             <div className="image-wrapper">
                                 <img
                                     src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                                    alt="GK Technology Mission"
+                                    alt="GK Technologies Mission"
                                     className="scale-on-hover"
                                 />
                                 <div className="image-overlay"></div>
@@ -229,7 +229,7 @@ const Home = () => {
                             <div className="section-label">Our Mission</div>
                             <h2>Driving Digital <span className="brand-accent">Transformation</span></h2>
                             <p>
-                                GK Technology is a premier onsite/offshore software solutions and services company, headquartered in the U.S. 
+                                GK Technologies is a premier onsite/offshore software solutions and services company, headquartered in the U.S. 
                                 We are recognized as the second-largest private IT company and ranked among the 50 fastest-growing private companies.
                                 {expanded && (
                                     <>
@@ -347,7 +347,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Technology Stack Section */}
+            {/* Technologies Stack Section */}
             <section 
                 ref={techRef} 
                 className={`tech-section ${isVisible.tech ? 'visible' : ''}`}
@@ -355,7 +355,7 @@ const Home = () => {
             >
                 <div className="container">
                     <div className="section-label">Our Expertise</div>
-                    <h2>Our <span className="brand-accent">Technology Stack</span></h2>
+                    <h2>Our <span className="brand-accent">Technologies Stack</span></h2>
                     <div className="tech-grid">
                         {techStack.map((tech, index) => (
                             <div key={index} className="tech-item">
@@ -415,8 +415,8 @@ const Home = () => {
                                     </div>
                                     <div className="contact-info">
                                         <h4>Email Us</h4>
-                                        <p>support@kgktechnology.com</p>
-                                        <p>info@kgktechnology.com</p>
+                                        <p>support@kgktechnologies.com</p>
+                                        <p>hr@kgktechnologies.com</p>
                                     </div>
                                 </div>
                                 
@@ -443,7 +443,7 @@ const Home = () => {
                                     WhatsApp Us
                                 </a>
                                 
-                                <a href="mailto:support@kgktechnology.com" className="action-btn email">
+                                <a href="mailto:hr@kgktechnologies.com" className="action-btn email">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                         <polyline points="22,6 12,13 2,6"></polyline>

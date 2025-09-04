@@ -128,7 +128,7 @@ const Cloud = () => {
             }
           }}>
             <img 
-              src="https://img.freepik.com/premium-photo/cloud-computing-technology-concept_1331575-638.jpg" 
+              src="https://img.freepik.com/premium-photo/cloud-computing-technologies-concept_1331575-638.jpg" 
               alt="Cloud Services" 
               style={{ 
                 width: "100%", 
@@ -165,7 +165,7 @@ const Cloud = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we offer secure and scalable cloud solutions, ensuring businesses can operate efficiently with enhanced security and reliability. Our cloud services help you reduce IT costs while improving performance and accessibility.
+              At GK Technologies, we offer secure and scalable cloud solutions, ensuring businesses can operate efficiently with enhanced security and reliability. Our cloud services help you reduce IT costs while improving performance and accessibility.
             </p>
             
             {/* Cloud Features Grid */}

@@ -10,7 +10,7 @@ const Footer = () => {
         <div style={{ flex: "1", minWidth: "250px", textAlign: "left", marginBottom: "20px" }}>
           <h3 style={{ color: "#f7941d", fontSize: "22px", marginBottom: "10px" }}>About Us</h3>
           <p style={{ fontSize: "14px", lineHeight: "1.6" }}>
-            We specialize in cutting-edge technology solutions, including Mobile Apps, Web Development, APIs, and Cloud Infrastructure.
+            We specialize in cutting-edge technologies solutions, including Mobile Apps, Web Development, APIs, and Cloud Infrastructure.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div style={{ borderTop: "1px solid #333", marginTop: "20px", paddingTop: "10px", fontSize: "14px" }}>
-        © {new Date().getFullYear()} GK Technology. All Rights Reserved.
+        © {new Date().getFullYear()} GK Technologies. All Rights Reserved.
       </div>
     </div>
   );

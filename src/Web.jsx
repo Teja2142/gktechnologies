@@ -47,7 +47,7 @@ const Web = () => {
             lineHeight: "1.6",
             opacity: 0.9
           }}>
-            Crafting exceptional digital experiences with cutting-edge web technologies
+            Crafting exceptional digital experiences with cutting-edge web technology
           </p>
           <div style={{ 
             display: "flex", 
@@ -157,7 +157,7 @@ const Web = () => {
               fontSize: "1.1rem",
               marginBottom: "20px"
             }}>
-              At GK Technology, we create powerful, scalable, and user-friendly web applications 
+              At GK , we create powerful, scalable, and user-friendly web applications 
               tailored to your business needs. Our expert developers leverage the latest technologies 
               to ensure high performance, security, and exceptional user experiences.
             </p>
@@ -230,7 +230,7 @@ const Web = () => {
             </div>
           </div>
 
-          {/* Technology Stack */}
+          {/* Technologies Stack */}
           <div style={{ 
             background: "#fff", 
             borderRadius: "10px", 
@@ -254,7 +254,7 @@ const Web = () => {
                 background: "#f7941d",
                 borderRadius: "2px"
               }}></span>
-              Our Technology Stack
+              Our Technologies Stack
             </h2>
             <p style={{ 
               color: "#555", 
@@ -568,7 +568,7 @@ const Web = () => {
               }}>
                 <span>📞</span> +1-314-732-7749
               </a>
-              <a href="mailto:support@kgktechnologies.com" style={{ textDecoration: "none", background: "#f9f9f9", color: "#1a1a2e", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.transform = "translateY(0)"; }}>
+              <a href="mailto:hr@kgk.com" style={{ textDecoration: "none", background: "#f9f9f9", color: "#1a1a2e", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.transform = "translateY(0)"; }}>
                 <span>✉️</span> Email Us
               </a>
 
@@ -612,7 +612,7 @@ const Web = () => {
             }}>
               {[
                 {
-                  quote: "GK Technology transformed our online presence with a stunning website that perfectly represents our brand.",
+                  quote: "GK  transformed our online presence with a stunning website that perfectly represents our brand.",
                   author: "Sarah Johnson",
                   role: "CEO, Bright Solutions"
                 },
