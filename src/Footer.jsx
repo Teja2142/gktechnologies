@@ -35,7 +35,7 @@ const Footer = () => {
         <div style={{ flex: "1", minWidth: "250px", textAlign: "left", marginBottom: "20px" }}>
           <h3 style={{ color: "#f7941d", fontSize: "22px", marginBottom: "10px" }}>Contact Us</h3>
           <p style={{ fontSize: "14px", marginBottom: "6px" }}>📞 +1-314-732-7749, +1-314-354-0634</p>
-          <p style={{ fontSize: "14px", marginBottom: "6px" }}>✉ support@kgktechnologies.com</p>
+          <p style={{ fontSize: "14px", marginBottom: "6px" }}>✉ hr@kgktechnologies.com</p>
           <p style={{ fontSize: "14px" }}>📍 Saint Louis, MO, United States.</p>
         </div>
 

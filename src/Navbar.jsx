@@ -72,7 +72,7 @@ const Navbar = () => {
       {/* Top Contact Bar */}
       <div style={styles.topBar}>
         <div style={styles.contactSection}>
-          <span style={styles.contactItem}><FaEnvelope /> support@kgktechnologies.com</span>
+          <span style={styles.contactItem}><FaEnvelope /> hr@kgktechnologies.com</span>
           <span style={styles.contactItem}><FaPhoneAlt /> +1-314-732-7749</span>
           <span style={styles.contactItem}><FaPhoneAlt /> +1-314-354-0634</span>
         </div>

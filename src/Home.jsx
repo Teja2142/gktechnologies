@@ -415,8 +415,8 @@ const Home = () => {
                                     </div>
                                     <div className="contact-info">
                                         <h4>Email Us</h4>
-                                        <p>support@kgktechnologies.com</p>
                                         <p>hr@kgktechnologies.com</p>
+                                        <p>support@kgktechnologies.com</p>
                                     </div>
                                 </div>
                                 

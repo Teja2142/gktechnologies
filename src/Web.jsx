@@ -568,7 +568,7 @@ const Web = () => {
               }}>
                 <span>📞</span> +1-314-732-7749
               </a>
-              <a href="mailto:hr@kgk.com" style={{ textDecoration: "none", background: "#f9f9f9", color: "#1a1a2e", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.transform = "translateY(0)"; }}>
+              <a href="mailto:hr@kgktechnologies.com" style={{ textDecoration: "none", background: "#f9f9f9", color: "#1a1a2e", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.transform = "translateY(0)"; }}>
                 <span>✉️</span> Email Us
               </a>
 
