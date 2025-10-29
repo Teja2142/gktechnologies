@@ -549,7 +549,7 @@ const Web = () => {
               flexDirection: "column",
               gap: "15px"
             }}>
-              <a href="tel:+13147327749" style={{
+              <a href="tel:+13143540634" style={{
                 textDecoration: "none",
                 background: "#1a1a2e",
                 color: "#fff",
@@ -566,13 +566,13 @@ const Web = () => {
                   transform: "translateY(-3px)"
                 }
               }}>
-                <span>📞</span> +1-314-732-7749
+                <span>📞</span> +1-314-354-0634
               </a>
               <a href="mailto:hr@kgktechnologies.com" style={{ textDecoration: "none", background: "#f9f9f9", color: "#1a1a2e", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.background = "#1a1a2e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f9f9f9"; e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.transform = "translateY(0)"; }}>
                 <span>✉️</span> Email Us
               </a>
 
-              <a href="https://wa.me/13147327749" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", background: "#25D366", color: "#fff", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 4px 8px rgba(37, 211, 102, 0.3)"; }} onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <a href="https://wa.me/13143540634" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", background: "#25D366", color: "#fff", padding: "12px", borderRadius: "8px", fontWeight: "600", transition: "all 0.3s ease", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 4px 8px rgba(37, 211, 102, 0.3)"; }} onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
                 <span><i className="fa-brands fa-whatsapp"></i></span> WhatsApp
               </a>
 

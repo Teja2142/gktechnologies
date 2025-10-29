@@ -592,7 +592,7 @@ const Mobile = () => {
               flexDirection: "column",
               gap: "15px"
             }}>
-              <a href="tel:+13147327749" style={{
+              <a href="tel:+13143540634" style={{
                 textDecoration: "none",
                 background: "#1a1a2e",
                 color: "#fff",
@@ -610,7 +610,7 @@ const Mobile = () => {
                   boxShadow: "0 5px 15px rgba(247, 148, 29, 0.3)"
                 }
               }}>
-                <span>📞</span> +1-314-732-7749
+                <span>📞</span> +1-314-354-0634
               </a>
               <a href="mailto:hr@kgktechnologies.com" style={{
                 textDecoration: "none",
