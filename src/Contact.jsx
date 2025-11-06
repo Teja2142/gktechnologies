@@ -56,15 +56,20 @@ const Contact = () => {
     }
   };
 
-  // Validation functions
+  // Validation function
   const validateForm = () => {
     const newErrors = {};
 
-    // Full Name validation
-    if (!formData.fullName.trim()) {
+    // Full Name validation (Must contain only letters, spaces, hyphens, apostrophes)
+    const nameRegex = /^[a-zA-Z\s'-]+$/;
+    const trimmedFullName = formData.fullName.trim();
+
+    if (!trimmedFullName) {
       newErrors.fullName = "Full name is required";
-    } else if (formData.fullName.trim().length < 2) {
+    } else if (trimmedFullName.length < 2) {
       newErrors.fullName = "Full name must be at least 2 characters";
+    } else if (!nameRegex.test(trimmedFullName)) {
+      newErrors.fullName = "Full name can only contain letters, spaces, hyphens, or apostrophes.";
     }
 
     // Mobile validation
@@ -93,7 +98,7 @@ const Contact = () => {
     return newErrors;
   };
 
-  // Handle form submission
+  // Handle form submission - Now hits the actual API endpoint
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -107,26 +112,32 @@ const Contact = () => {
     setSubmitResponse("");
 
     try {
-      // Simulate email sending to HR
-      const emailData = {
-        to: "hr@kgktechnologies.com",
-        subject: `New Contact Form Submission from ${formData.fullName}`,
-        body: `
-          New contact form submission:
-          
-          Name: ${formData.fullName}
-          Mobile: ${formData.mobile}
-          Email: ${formData.email}
-          Message: ${formData.comment}
-          
-          Submitted on: ${new Date().toLocaleString()}
-        `
-      };
+      // POST data to the specified backend endpoint
+      const response = await fetch("https://api.kgktechnologies.com/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Add any necessary authorization headers here if required by the API
+        },
+        // The formData object contains fullName, mobile, email, and comment
+        body: JSON.stringify(formData), 
+      });
 
-      // In a real application, you would send this data to your backend
-      // For now, we'll simulate the API call
-      await simulateEmailSending(emailData);
-
+      if (!response.ok) {
+        // Attempt to parse error message from response body
+        let errorMessage = `HTTP error! Status: ${response.status}`;
+        try {
+          const errorData = await response.json();
+          if (errorData.message) {
+            errorMessage = errorData.message;
+          }
+        } catch (parseError) {
+          // If response is not JSON, use the default error message
+        }
+        throw new Error(errorMessage);
+      }
+      
+      // Success response
       setSubmitResponse("success");
       
       // Reset form
@@ -146,26 +157,11 @@ const Contact = () => {
       }, 100);
 
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitResponse("error");
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  // Simulate email sending function
-  const simulateEmailSending = (emailData) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Simulate 90% success rate
-        if (Math.random() > 0.1) {
-          console.log("Email would be sent to:", emailData.to);
-          console.log("Email content:", emailData);
-          resolve();
-        } else {
-          reject(new Error("Failed to send email"));
-        }
-      }, 1500);
-    });
   };
 
   return (
@@ -355,8 +351,8 @@ const Contact = () => {
               }}
             >
               {submitResponse === "success" 
-                ? "✅ Thank you for your message! We have received your inquiry and will get back to you soon. An email has been sent to our HR team." 
-                : "❌ There was an error submitting your form. Please try again or contact us directly."}
+                ? "✅ Success! We have received your inquiry and will get back to you soon." 
+                : "❌ There was an error submitting your form. Please check your network connection and try again."}
             </div>
           )}
 
@@ -373,7 +369,9 @@ const Contact = () => {
                 fontWeight: "600", 
                 color: "#444",
                 fontSize: "clamp(0.85rem, 2vw, 0.9rem)"
-              }}>Full Name:</label>
+              }}>
+                Full Name<span style={{ color: '#dc3545' }}>*</span>:
+              </label>
               <input 
                 type="text" 
                 name="fullName"
@@ -400,13 +398,15 @@ const Contact = () => {
                 fontWeight: "600", 
                 color: "#444",
                 fontSize: "clamp(0.85rem, 2vw, 0.9rem)"
-              }}>Mobile Number:</label>
+              }}>
+                Mobile Number<span style={{ color: '#dc3545' }}>*</span>:
+              </label>
               <input 
                 type="text" 
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleInputChange}
-                placeholder="Enter your mobile number" 
+                placeholder="Enter your 10-digit mobile number" 
                 style={{ 
                   padding: "12px 15px", 
                   border: `1px solid ${errors.mobile ? "#dc3545" : "#ddd"}`, 
@@ -427,7 +427,9 @@ const Contact = () => {
                 fontWeight: "600", 
                 color: "#444",
                 fontSize: "clamp(0.85rem, 2vw, 0.9rem)"
-              }}>Email:</label>
+              }}>
+                Email<span style={{ color: '#dc3545' }}>*</span>:
+              </label>
               <input 
                 type="email" 
                 name="email"
@@ -454,7 +456,9 @@ const Contact = () => {
                 fontWeight: "600", 
                 color: "#444",
                 fontSize: "clamp(0.85rem, 2vw, 0.9rem)"
-              }}>Comment:</label>
+              }}>
+                Comment<span style={{ color: '#dc3545' }}>*</span>:
+              </label>
               <textarea 
                 name="comment"
                 value={formData.comment}
