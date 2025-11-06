@@ -86,10 +86,9 @@ const Navbar = () => {
       <div style={gkNavbarStyles.navbarContainer}>
         <div style={gkNavbarStyles.logoSection}>
           <Link to="/"><img src={gklogo} alt="GK Logo" style={{ height: "48px" }} /></Link>
-          <div>
-            <h1 style={gkNavbarStyles.logoTitle}>GK Tech
-              <p style={gkNavbarStyles.logoSubtitle}>Stay one step ahead</p>
-            </h1>
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: "1.1" }}>
+            <h1 style={gkNavbarStyles.logoTitle}>GK Tech</h1>
+            <span style={gkNavbarStyles.logoSubtitle}>Stay one step ahead</span>
           </div>
         </div>
 
