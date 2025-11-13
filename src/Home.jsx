@@ -20,6 +20,11 @@ import {
 } from "react-icons/fa";
 
 const Home = () => {
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
+    
     const [expanded, setExpanded] = useState(false);
     const [animate, setAnimate] = useState(false);
     const [isVisible, setIsVisible] = useState({

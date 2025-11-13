@@ -8,6 +8,11 @@ import raviteja from './images/RaviTeja.jpg';
 
 
 const About = () => {
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
+    
     const values = [
       { title: 'Client Success:', text: 'Your growth defines ours.' },
       { title: 'Innovation:', text: 'We stay on top of trends so you stay ahead of the competition.' },

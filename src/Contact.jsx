@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const Contact = () => {
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
+    
   const location = useLocation();
   const [formData, setFormData] = useState({ fullName: "", company: "", inquiryType: "", mobile: "", email: "", message: "" });
   const [errors, setErrors] = useState({});

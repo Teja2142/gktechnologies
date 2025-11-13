@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const AuthSystem = () => {
+      useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const [isLogin, setIsLogin] = React.useState(true);
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
   const [showOtpVerification, setShowOtpVerification] = React.useState(false);

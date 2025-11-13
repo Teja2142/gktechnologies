@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PostJobs = () => {
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
+
   const [focusedField, setFocusedField] = useState(null);
   const [formData, setFormData] = useState({
     title: '',

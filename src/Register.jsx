@@ -1,6 +1,9 @@
-import React from "react";
+import React , {useEffect} from "react";
 
 const Register = () => {
+      useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',

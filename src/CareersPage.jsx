@@ -31,6 +31,11 @@ const Input = ({ placeholder, value, onChange, className }) => (
 
 // Jobs Component
 export default function Jobs() {
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
+    
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [search, setSearch] = useState("");
