@@ -325,7 +325,7 @@ const About = () => {
       <div style={{ padding: '40px 0', backgroundColor: '#f8f9fa', margin: '40px 0' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '40px' }}>
           <div style={{ flex: '1', minWidth: '300px' }}>
-            <img 
+              {/* <img 
               src={raviteja} 
               alt="Ravi Teja Korla, Founder & CEO"
               style={{ 
@@ -337,7 +337,7 @@ const About = () => {
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 display: 'block'
               }}
-            />
+            /> */}
           </div>
           <div style={{ flex: '1', minWidth: '300px' }}>
             <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '15px', color: '#2c3e50' }}>Message from the CEO</h3>
@@ -362,7 +362,7 @@ const About = () => {
               our community thriving. If you're ready to grow, we're here to help.
             </p>
             <div style={{ marginTop: '30px' }}>
-              <h5 style={{ fontSize: '1.2rem', marginBottom: '5px', color: '#2c3e50' }}>Ravi Teja Korla</h5>
+              <h5 style={{ fontSize: '1.2rem', marginBottom: '5px', color: '#2c3e50' }}>Ravi K</h5>
               <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>Founder & CEO</p>
               <p style={{ fontSize: '0.9rem', color: '#7f8c8d', margin: '0' }}>GK Technologies</p>
             </div>
